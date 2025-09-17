@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista atv 12</title>
+</head>
+
+<body>
+    <button onclick="avaliar()">Avaliar</button>
+    <div id="resultado"></div>
+    <div id="imagem" class=""></div>
+    <div id="div_avaliacoesAnteriores"></div>
+    <button onclick="media()">Verificar Média</button>
+
+    <div id="div_media"></div>
+    <script>
+        var avaliacoes = 0 
+        var contador = 0 
+        var avaliacoesAnteriores = ""
+
+        function avaliar() {
+            var inicio = 1
+            var fim = 5
+            var nota = (Math.random() * (fim - inicio) + inicio).toFixed(1) 
+           
+            avaliacoes += nota
+            contador++ 
+            avaliacoesAnteriores += `Nota ${contador}: ${nota}<br>` 
+
+            resultado.innerHTML = `Nota recebida: ${nota}`
+         
+            var mensagem = ""
+            var emoji = ""
+
+            if (nota <= 0.5) {
+                mensagem = "Muito Triste"
+                emoji = "triste"
+            } else if (nota > 0.5 && nota <= 1.5) {
+                mensagem = "Meio Triste"
+                emoji = "meioTriste"
+            } else if (nota > 1.5 && nota <= 3.5) {
+                mensagem = "Neutro"
+                emoji = "neutro"
+            } else if (nota > 3.5 && nota <= 4.5) {
+                mensagem = "Feliz"
+                emoji = "feliz"
+            } else {
+                mensagem = "Muito Feliz!"
+                emoji = "muitoFeliz"
+            }
+
+            imagem.innerHTML = `<p>${mensagem}</p> <div class="${emoji}"></div>`
+            div_avaliacoesAnteriores.innerHTML = avaliacoesAnteriores
+        }
+
+        function media() {
+         
+            var media = (avaliacoes / contador).toFixed(1)
+
+            var mensagem = ""
+            var emoji = ""
+
+            if (media <= 0.5) {
+                mensagem = "Muito Triste"
+                emoji = "triste"
+            } else if (media > 0.5 && media <= 1.5) {
+                mensagem = "Meio Triste"
+                emoji = "meioTriste"
+            } else if (media > 1.5 && media <= 3.5) {
+                mensagem = "Neutro"
+                emoji = "neutro"
+            } else if (media > 3.5 && media <= 4.5) {
+                mensagem = "Feliz"
+                emoji = "feliz"
+            } else {
+                mensagem = "Muito Feliz!"
+                emoji = "muitoFeliz"
+            }
+
+            div_media.innerHTML = `Média geral: ${media}<p>${mensagem}</p> <div class="${emoji}"></div>`
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista atv 12</title>
+</head>
+<body>
+    <button onclick="calc()">Sortear time</button>
+    <div id="resposta"></div>
+ 
+</body>
+<script>
+function calc(){
+    
+    var inicio =  1
+    var fim = 4.1
+    var sorteadoFinal = Math.round((Math.random() * (fim - inicio) + inicio))
+
+
+    if(sorteadoFinal == 1){
+
+resposta.innerHTML = `<div class="img1" id="time"></div>`
+}else if(sorteadoFinal == 2){
+resposta.innerHTML = `<div class="img2" id="time"></div>`
+}else if(sorteadoFinal == 3){
+resposta.innerHTML = `<div class="img3" id="time"></div>`
+}else if(sorteadoFinal == 4){
+resposta.innerHTML = `<div class="img4" id="time"></div>`
+}
+
+}
+
+
+
+</script>
+
+</html>

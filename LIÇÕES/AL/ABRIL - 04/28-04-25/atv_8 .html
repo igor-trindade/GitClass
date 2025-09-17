@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="nome_aluno">Informe o nome do Aluno para cadastro</label>
+    <input type="text" name="" id="nome_aluno">
+    <Button onclick="cadastrar()">Cadastrar</Button>
+    <div id="resposta"></div>
+</body>
+<script>
+var alunos = []
+
+function cadastrar(){
+     var nomeAluno = nome_aluno.value
+     var alunoInfo = alunos.length  
+     var mensagem = ''
+
+    if( nomeAluno == ''){
+    alert("Informe um nome pelo menos!")
+    return;}
+
+    alunos.push(nomeAluno)
+   
+    do{mensagem += `Aluno ${alunos[alunoInfo]} Adicionado <br>`
+    alunoInfo --} 
+    while(alunoInfo >=0)
+    resposta.innerHTML = mensagem
+}
+
+
+
+</script>
+</html>

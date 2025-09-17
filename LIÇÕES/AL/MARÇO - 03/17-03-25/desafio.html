@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+<body>
+<label for="ipt_qtdCompra">Quantidade de item da compra?</label>
+<input type="number" id="ipt_qtdCompra">
+
+<br>
+<label for="ipt_valorTotal"> Valor Total Gasto</label>
+<input type="number" id="ipt_valorTotal">
+<br>
+<label for="ipt_vip">É cliente é VIP</label>
+<input name="spfc" type="checkbox" id="rad_vip">
+
+<button onclick="calc()">Calcular desconto</button>
+
+<div id="div_resposta"></div>
+
+<script>
+
+function calc(){
+var qtd = Number(ipt_qtdCompra.value)
+var total = Number(ipt_valorTotal.value)
+var vipS = rad_vip.checked
+var desconto = 0
+var pontos = 0
+
+
+if(qtd > 10 && total > 1000 && vipS){
+desconto += 15
+}
+if ((qtd > 10 && total > 500) || vipS) {
+desconto += 10
+}
+if ((qtd >= 6 && qtd <= 10) && (total >= 200) || vipS) {
+desconto += 5
+}
+if (qtd <= 5) {
+desconto = 0
+}
+
+
+if (qtd > 5 && total > 200 || vipS) {
+pontos = pontos + 50
+}
+if( qtd >= 10 && total > 500) {
+pontos = pontos + 100
+}
+
+
+if(vipS){
+var vip = "true"
+} else {
+var vip = "false"
+}
+
+div_resposta.innerHTML = `<h1>Quantidade de produtos = ${qtd}
+<br> Valor Total = ${total}
+<br> Cliente Vip = ${vip}
+<br> Valor do Desconto = ${desconto}%
+<br> Pontos Ganhos = ${pontos}</h1>`
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+.triste{
+    background-image: url(/part2/img/\(1\).png);
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    margin: 60px
+}
+.meioTriste{
+    background-image: url(/part2/img/\(2\).png);
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    margin: 60px
+}
+
+.neutro{
+    background-image: url(/part2/img/\(3\).png);
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    margin: 60px
+}
+
+.feliz{
+    background-image: url(/part2/img/\(4\).png);
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    margin: 60px
+}
+
+.muitoFeliz{
+    background-image: url(/part2/img/\(5\).png);
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    margin: 60px
+}
+
+
+
+.luaNova{ 
+    background-image: url(/part2/img/lua\(1\).png);
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    margin: 60px}
+
+.luaCheia{ 
+    background-image: url(/part2/img/lua\(2\).png);
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    margin: 60px}
+
+.luaMinguante{ background-image: url(/part2/img/lua\(3\).png);
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    margin: 60px}
+
+.luaCrescente{  background-image: url(/part2/img/lua\(4\).png);
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    margin: 60px}

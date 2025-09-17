@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <label for="ipt_epInicio">Episodio que deseja começar assistindo</label>
+ <input type="number" id="ipt_epInicio">
+<br>
+
+
+ <label for="ipt_tempoDisponivel">Quantidade de Tempo disponivel</label>
+ <input type="number" id="ipt_tempoDisponivel">
+
+<br>
+
+
+ <label for="">Unidade de Tempo em</label>
+ <input type="list" id="ipt_unidadeTempo" name="tempo" list="tempo">
+ <datalist id="tempo">
+    <option value="minutos"></option>
+    <option value="horas"></option>
+ </datalist>
+
+<br>
+
+
+ <label for="ipt_abertura">Pular Abertura?</label>
+ <input type="list" id="ipt_abertura" list="abertura">
+<datalist id="abertura">
+<option value="sim"></option>
+<option value="não"></option>
+</datalist>
+<br>
+<label for="ipt_encerramento">Pular Encerramento?</label>
+<input type="list" id="ipt_encerramento" list="encerramento">
+<datalist id="encerramento">
+<option value="sim"></option>
+<option value="não"></option>
+</datalist>
+
+
+
+<button onclick="calc()">Assistir episódios</button>
+
+
+
+
+    <div id="div_reposta"></div>
+    <div id="div_reposta2"></div>
+
+</body>
+<script>
+    function calc() {
+        var epInicio = Number(ipt_epInicio.value)
+        var tempoDisponivel = Number(ipt_tempoDisponivel.value)
+        var unidadeTempo = ipt_unidadeTempo.value
+        var abertura = ipt_abertura.value
+        var encerramento = ipt_encerramento.value
+
+        var mensagem = ""
+        var contadorEp = 0
+        var tempoLimite = 0
+        var minAssitidos = 0
+        var epAssistidos = 0 
+        var tempEp = 0
+
+        div_reposta.innerHTML = mensagem
+
+
+
+
+        /*validando atd ep*/
+        if (epInicio < 1 || epInicio > 1100) { alert("O número do episódio é inválido")
+            return;}
+
+
+        // convertendo
+        if (unidadeTempo == 'minutos') {tempoLimite = tempoDisponivel}
+        else {tempoLimite = tempoDisponivel * 60}
+
+
+        //laço
+        while (tempoLimite > 0) {
+
+            mensagem += `<br>Episódio: ${epInicio} <br>`
+
+            epInicio++
+            epAssistidos++
+            tempEp = 0
+
+
+                // duração ep
+                 if (abertura == 'não' && encerramento == 'não') {tempEp = 24} 
+            else if (abertura == 'sim' && encerramento == 'não') {tempEp = 22} 
+            else if (abertura == 'não' && encerramento == 'sim') {tempEp = 22} 
+            else {tempEp = 20}
+
+
+
+            // abertura?
+            if (abertura == 'não') {
+
+                for (var j = 1; j <= 2; j++) { if (tempoLimite <= 0) break;
+
+
+                    contadorEp++
+                    tempoLimite--
+                    minAssitidos++
+
+
+                    mensagem += `Minuto ${contadorEp}: Assistindo Abertura <br>`}}
+
+
+
+
+
+               // só ep
+            for (var i = contadorEp + 1; i <= 22; i++) 
+            {if (tempoLimite <= 0 || contadorEp >= tempEp) break;
+
+                contadorEp++
+                tempoLimite--
+                minAssitidos++
+
+                mensagem += `Minuto ${contadorEp}: Assistindo o Episódio<br>`}
+
+
+
+            // fechamento?
+            if (encerramento == 'não') {for (var l = 1; l <= 2; l++) 
+
+                {if (tempoLimite <= 0 || contadorEp >= tempEp) break;
+                    contadorEp++
+                    tempoLimite--
+                    minAssitidos++
+
+
+                    mensagem += `Minuto ${contadorEp}: Assistindo Encerramento<br>`}}
+            contadorEp = 0}
+
+
+
+
+        mensagem += `<br><br>Fim dos episódios!`
+        var totalEpAssistidos = (minAssitidos / tempEp)
+
+
+
+
+        mensagem += `<br>Foram assistidos: ${totalEpAssistidos} episódios`
+        div_reposta.innerHTML = mensagem}
+
+
+
+
+
+</script>
+
+</html>

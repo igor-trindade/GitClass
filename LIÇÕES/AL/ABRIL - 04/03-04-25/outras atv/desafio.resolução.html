@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="ipt_qtdMusicas">Quantidade de músicas:</label>
+    <input id="ipt_qtdMusicas" type="number">
+    <button onclick="calc()">Começar Show</button>
+
+    <div id="div_resumo"></div>
+</body>
+<script>
+    function calc() {
+        var qtdMusicas = ipt_qtdMusicas.value
+        var qtdAprovadas = 0;
+        var qtdReprovadas = 0;
+        var ultimaMusica = ""; 
+
+
+
+        for (var i = 1; i <= qtdMusicas; i++) {
+            var musicaDigitada = prompt(`Digite a ${i}ª música:`);
+            
+while (musicaDigitada == ultimaMusica) {
+                musicaDigitada = prompt("Digite uma música diferente da última:");
+            }
+           ultimaMusica = musicaDigitada
+            var aprovacao = prompt(`Você gosta dessa música? (Responda com "sim" ou "não")`);
+
+while (aprovacao !== "sim" && aprovacao !== "não") { 
+                aprovacao = prompt(`Resposta inválida. Você gosta dessa música? (Responda com "sim" ou "não")`)
+            }
+                if (aprovacao === "sim") {
+                qtdAprovadas++;
+            } else{qtdReprovadas++}
+            
+        
+        }
+       
+            div_resumo.innerHTML = `
+            Quantidade de músicas tocadas: ${qtdMusicas}<br>
+            Quantidade de músicas aprovadas: ${qtdAprovadas}<br>
+            Quantidade de músicas reprovadas: ${qtdReprovadas}
+        `
+        }
+
+    
+</script>
+</html>

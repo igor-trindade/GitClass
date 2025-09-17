@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<h1> Você Está no Caminho Certo?</h1>
+
+    <label for="ipt_meta">Meta de economia?</label>
+    <input type="number" id="ipt_meta">
+<br>
+    <label for="ipt_guardado">Quanto tem guardado?</label>
+    <input type="number" id="ipt_guardado">
+<br>
+    <button onclick="acao()">Analisar economia</button>
+    <div id="resultado"></div>
+    
+    <script>
+        function acao() {
+           
+            var meta = Number(ipt_meta.value)
+            var guardado = Number(ipt_guardado.value)
+            var mais = (meta - guardado)
+            var menos = (guardado - meta)
+
+
+ if (guardado === meta) {
+            resultado.innerHTML = `<h1>Parabéns, meta alcançada!</h1>`
+} else if (guardado < meta) {
+            resultado.innerHTML = `<h1>Força! Ainda em busca da meta! Falta R$${mais}</h1>`
+        } else if (guardado > meta) {
+            resultado.innerHTML = `<h1>Meta ultrapassada em R$${menos}</h1>`
+        }
+}
+    </script>
+
+</body>
+
+</html>

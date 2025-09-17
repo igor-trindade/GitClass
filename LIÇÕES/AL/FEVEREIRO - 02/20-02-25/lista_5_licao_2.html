@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritimo é legal</title>
+</head>
+<body>
+ 
+  <label for="ipt_latinha">Quantidade de latinhas diarias</label>
+    <input type="text" id="ipt_latinha" />
+    <button onclick="verificar()">Quantos refris?</button>
+    <div id="div_resposta"></div> 
+    <br>
+    <div id="div_diabete"></div>
+
+    <script>
+
+    function verificar() { 
+       div_resposta.innerHTML = ` <h2>Você consome ${Number(ipt_latinha.value * 365)} por ano!</h2>`
+      
+      if(Number(ipt_latinha.value * 365) >= 500){
+        div_diabete.innerHTML = ` <h2>Cuidado com a diabetes!</h2>`
+      } else{
+      div_diabete.innerHTML = ("<h2> </h2>");
+        }
+    }
+ </script>
+
+</body>
+</html>

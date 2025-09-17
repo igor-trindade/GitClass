@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="ipt_number"> Informe numero da tabela</label>
+    <input type="text" id="ipt_number">
+    <button onclick="resposta()">Calcular</button>
+    <div id="resultado"></div>
+    <h2 style="color: red;">
+
+</body>
+
+<script>
+    
+    function resposta() {
+        var num = ipt_number.value
+
+        if (num == 1) {
+            resultado.innerHTML = `<h2>Você aplicará a opção 10%  de desconto!</h2>`
+        }
+        if (num == 2) {
+           resultado.innerHTML = `<h2>Você aplicará a opção 20%  de desconto!</h2>`
+        }
+        if (num == 3) {
+            resultado.innerHTML = `<h2>Você aplicará a opção 30%  de desconto!</h2>`
+        }
+        if (num == 4) {
+            resultado.innerHTML = `<h2>Você aplicará a opção 40%  de desconto!</h2>`
+        }
+        if (num > 4) {
+            resultado.innerHTML = `<h2 style="color: red;"> valor invalido, insira a informação novamente </h2>`
+        }
+        if (num < 1) {
+            resultado.innerHTML = `<h2 style="color: red;"> valor invalido, insira a informação novamente </h2>`
+        }
+    }   
+</script>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="ipt_nota"> Nota do Aluno  </label>
+    <input type="number" id="ipt_nota">
+
+
+    <button onclick="calcular()">Avaliar aluno</button>
+
+    <script>
+        function calcular() {
+            var nota = Number(ipt_nota.value)
+            
+            if(nota < 6 ) {
+                alert("Aluno não aprovado")
+            } else if ( nota  >= 8.5 && nota <= 10) {
+                alert("Aluno Exemplar!")
+            }else if ( nota  >= 6 && nota < 8.5) {
+                alert("Aluno comum e aprovado")
+            }
+        }
+    </script>
+</body>
+</html>

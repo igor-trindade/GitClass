@@ -1,0 +1,53 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="ipt_FilmesFavoritos">Adicionar Filmes Favotitos ?</label>
+    <input type="text" id="ipt_FilmesFavoritos">
+    <button onclick="add()">Cadastrar filme</button>
+    <button onclick="todosFavoritos()">Ver Favoritos</button>
+    <br>
+    <div id="resposta"></div>
+</body>
+
+<script>
+var filmesFavorios = []
+var mensagem = ''
+
+function add(){
+var filmesFavoritosAdd = ipt_FilmesFavoritos.value
+
+   
+if(filmesFavoritosAdd == ''){
+    alert( `Para adicionar precisamos saber o que adicionar né? Insira algo ai fiote`)
+    return;}
+
+    filmesFavorios.push(filmesFavoritosAdd)
+    
+    alert(` filme: ${filmesFavoritosAdd} adicionado!`)}
+
+    
+function todosFavoritos(){
+
+for (var i = 0; i < filmesFavorios.length; i++ ){
+    mensagem += `filmesFavorios[i]<br>` }
+    mensagem +=`<br><br> Total: ${filmesFavorios.length}`
+    mensagem +=`<br><br> Filme que você mais gosta da lista é: ${filmesFavorios[0]}`
+    mensagem +=`<br> Filme que você menos gosta da lista é: ${filmesFavorios[filmesFavorios.length-1]}`
+    resposta = mensagem
+}
+
+
+
+
+
+
+</script>
+
+
+
+</html>

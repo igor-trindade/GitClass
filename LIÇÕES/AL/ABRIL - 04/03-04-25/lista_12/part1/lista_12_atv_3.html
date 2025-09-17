@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista atv 12</title>
+</head>
+<body>
+    <button onclick="calc()">jogar dado</button>
+    <div class="div" id="resposta"></div>
+ 
+</body>
+<script>
+
+
+function calc(){
+    
+    var inicio =  1
+    var fim = 20.1
+    var sorteadoFinal = Math.round((Math.random() * (fim - inicio) + inicio))
+
+resposta.innerHTML = `${sorteadoFinal}`
+
+
+
+
+
+}
+
+
+
+</script>
+
+</html>

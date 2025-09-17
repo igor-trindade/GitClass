@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lição 01 Algoritimo</title>
+</head>
+</p><h1>Olá Bem-Vindo!</h1>
+<h1>Nesta Primeira etapa informe os seguintes dados:</h1>
+
+<body style="background-color: beige;">
+    <h4> Cidade Natal:</h4>
+    <input type="text" id=ipt_cidadeNatal placeholder="Ex: São Paulo">
+    <p>
+    <h4> Ano de Nascimento:</h4>
+    <input type="text" id=ipt_nascimento placeholder="Ex: 1970">
+    <button onclick="cadastro()" type="button">Cadastrar</button>
+    </p>
+
+    <script>
+        function cadastro() {
+
+            alert('Você nasceu na cidade de ' + ipt_cidadeNatal.value + ' em ' + ipt_nascimento.value)
+        }
+
+    </script>
+</body>
+
+</html>

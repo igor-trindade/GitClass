@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritimo é legal</title>
+</head>
+<body>
+    <h1>SITUAÇÃO BANCARIA</h1>
+    <label for="ipt_saldo">Saldo Bancario:</label>
+    <input type="number" id="ipt_saldo" />
+
+<button onclick="calcular()">Verificar finanças</button>
+<div id="resposta"></div>
+
+
+<script>
+function calcular(){
+    if(ipt_saldo.value == 0 ){
+resposta.innerHTML = `<h1>Conta zerada</h1>`
+    }
+    if(ipt_saldo.value < 0 ){
+resposta.innerHTML = `<h1>Está devendo!</h1>`
+    } 
+    if(ipt_saldo.value > 0 ){
+        resposta.innerHTML =`<h1>Saldo positivo! sorriso</h1>`}
+}
+
+</script>
+</html>

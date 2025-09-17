@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="ipt_frutaUser">Destino de viagem?</label>
+    <input type="text" id="ipt_destinoEscolhido">
+    <button onclick="add()">Adicionar Destino</button>
+    <button onclick="primeiraViagem()">Primeira Viagem</button>
+    <button onclick="terceiraViagem()">Terceira Viagem</button>
+    <button onclick="ultimaViagem()">Ultima Viagem</button>
+
+
+
+
+    <div id="resposta"></div>
+</body>
+
+<script>
+var destinos = []
+var mensagem = ''
+var contador = -1
+var vezesAdicionadas = 0
+
+function add(){
+   var destinoEscolhido = ipt_destinoEscolhido.value
+   
+   
+if(destinoEscolhido == ''){
+    alert( `Para adicionar precisamos saber o que adicionar né? Insira algo ai fiote`)
+    return;}
+    vezesAdicionadas ++
+   destinos.push(destinoEscolhido)
+    alert(`Destino ${destinoEscolhido} adcionado.`)
+}
+
+
+
+
+function primeiraViagem(){
+var destinoEscolhido = ipt_destinoEscolhido.value
+
+for (var i = 0; i < destinos.length; i++ ){contador++}
+
+if(contador == -1){mensagem = ` Usuario Ainda não viajou`}
+
+else{mensagem = `Usuario Foi à ${destinos[0]}`}
+
+resposta.innerHTML = mensagem}
+
+
+
+
+
+function terceiraViagem(){
+var destinoEscolhido = ipt_destinoEscolhido.value
+for (var i = 0; i < destinos.length; i++ ){contador++}
+
+if(contador == -1){mensagem = ` Usuario Ainda não viajou`}
+else if (vezesAdicionadas < 3){mensagem = `Usuario Ainda não fez 3 viagens`}
+else{mensagem = ` Na Terceira Viagem o usuario foi à ${destinos[2]}`
+}resposta.innerHTML = mensagem}
+
+
+
+
+function ultimaViagem(){
+
+var destinoEscolhido = ipt_destinoEscolhido.value
+
+for (var i = 0; i < destinos.length; i++ ){contador++}
+
+if(contador == -1){mensagem = ` Usuario Ainda não viajou`}
+
+else{mensagem = ` A ultima viagem do usuario foi à ${destinos[destinos.length-1]}`
+}resposta.innerHTML = mensagem}
+
+</script>
+
+
+
+</html>

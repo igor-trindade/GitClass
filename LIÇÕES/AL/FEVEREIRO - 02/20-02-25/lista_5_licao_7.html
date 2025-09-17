@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algoritimo é legal</title>
+  </head>
+  <body>
+    <label for="ipt_saldo">Saldo Atual</label>
+    <input type="number" id="ipt_saldo" />
+
+    <label for="ipt_debitar">Valor Saque</label>
+    <input type="number" id="ipt_debitar" />
+
+    <button onclick="calcular()">Analisar conta</button>
+    <br />
+    <div id="div_resposta"></div>
+
+    <script>
+      function calcular() {
+        var atual = Number(ipt_saldo.value) - Number(ipt_debitar.value);
+
+        if (atual < 0) {
+          div_resposta.innerHTML = `<h2 style="color: red;">O saldo atual da conta corrente é ${atual}</h2>`;
+        } else {
+          div_resposta.innerHTML = `<h2>O saldo atual da conta corrente é ${atual}</h2>`;
+        }
+      }
+    </script>
+</body>
+
+  </body>
+</html>

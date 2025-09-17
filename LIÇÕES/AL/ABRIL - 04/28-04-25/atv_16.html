@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Loja Eletrônica com Estatísticas</title>
+</head>
+<body>
+    <label for="nome_produto">Nome do produto:</label>
+    <input type="text" id="nome_produto">
+    <label for="preco_compra">Preço de compra:</label>
+    <input type="number" id="preco_compra" step="0.01">
+    <button onclick="cadastrarProduto()">Cadastrar</button>
+    <button onclick="mostrarRelatorio()">Relatório de estoque</button>
+
+    <div id="relatorio"></div>
+
+    <script>
+        var nomesProdutos = []
+        var precosCompra = []
+
+        function cadastrarProduto() {
+            var nome = nome_produto.value.trim()
+            var preco = parseFloat(preco_compra.value)
+
+            if(nome == "" || isNaN(preco)){
+                alert("informe um valor valido!")
+            }
+            nomesProdutos.push(nome)
+            precosCompra.push(preco)
+        }
+
+        function mostrarRelatorio() {
+            var mensagem = `Total de produtos: ${nomesProdutos.length}<br><br>`
+            var somaCompra = 0
+            var somaVenda = 0
+
+            
+            var maior = precosCompra[0]
+            var menor = precosCompra[0]
+            var maisCaro = nomesProdutos[0]
+            var maisBarato = nomesProdutos[0]
+
+            for (var i = 0; i < nomesProdutos.length; i++) {
+                var preco = precosCompra[i]
+                var venda = preco * 1.25
+                somaCompra += preco
+                somaVenda += venda
+
+                if (preco > maior) {
+                    maior = preco
+                    maisCaro = nomesProdutos[i]}
+                if (preco < menor) {menor = preco
+                    maisBarato = nomesProdutos[i]}
+
+
+                mensagem += `Produto ${i + 1}: ${nomesProdutos[i]}<br>
+                Preço de compra: R$${preco.toFixed(2)}. Vender por R$${venda.toFixed(2)}<br><br>`
+            }
+
+            var mediaVenda = somaVenda / nomesProdutos.length
+
+            mensagem += `Produto mais caro: ${maisCaro}<br>`
+            mensagem += `Produto mais barato: ${maisBarato}<br>`
+            mensagem += `Soma dos preços de compra: R$${somaCompra.toFixed(2)}<br>`
+            mensagem += `Média de preço de venda: R$${mediaVenda.toFixed(2)}`
+
+            relatorio.innerHTML = mensagem
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <label for="ipt_renda">Qual a renda familiar mensal?</label>
+    <input type="number" id="ipt_renda">
+    <button onclick="acao()">Analisar Renda</button>
+    <div id="resultado"></div>
+
+    <script>
+            function acao() {
+                var renda = ipt_renda.value
+                if (renda <= 250) {
+                   resultado.innerHTML =  `<h1>Classe E</h1>`
+                } else if (renda <= 900) {
+                     resultado.innerHTML = `<h1>Classe D</h1>`
+                } else if (renda <= 2500) {
+                    resultado.innerHTML =  `<h1>Classe C</h1>`
+                } else if (renda <= 9500) { 
+                     resultado.innerHTML = `<h1>Classe B</h1>` } else {
+                        resultado.innerHTML =  `<h1>Classe A</h1>`
+                }
+            }
+    
+    </script>
+
+</body>
+
+</html>

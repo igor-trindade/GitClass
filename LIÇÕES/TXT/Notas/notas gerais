@@ -1,0 +1,14 @@
+camelCase => primeira minuscula demais maiuscula.
+PascalCase => todas primeiras letras da palavra maiuscula.
+quebabcase => tudo minusculo separado por traço.
+
+
+Java Develoment Kit
+
+Java Runtime Envyroment
+
+Java Virtual Machine -> interpreta o bytecode.  p/ cada SO
+
+
+ em java metodo e variavel -> camelCase
+         classe é PascalCase

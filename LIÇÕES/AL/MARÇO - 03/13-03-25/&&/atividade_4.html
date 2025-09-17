@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="ipt_pagamento">Metodo Pagamento 
+        Dinheiro, Cartão de débito, Cartão de crédito ou Boleto </label>
+    <input type="text" id="ipt_pagamento">
+<br>
+    <button onclick="calc()">Analisar compra</button>
+
+
+<script>
+function calc(){
+    var pagamento = ipt_pagamento.value
+
+if(pagamento != 'Dinheiro' && pagamento != 'Cartão de débito' && pagamento != 'Cartão de crédito' && pagamento != 'Boleto'){
+    alert  (`Metodo de pagamento Invalido Revise os dados inseridos!!`)
+
+
+}else if(pagamento == 'Dinheiro' || pagamento =='Cartão de débito'){
+    alert  (`Você terá que pagar a vista`)
+}else{alert  (`Pagamento poderá ser parcelado`)}
+}
+
+</script>
+
+</body>
+</html>

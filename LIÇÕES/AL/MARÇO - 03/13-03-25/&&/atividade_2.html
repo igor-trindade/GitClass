@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="ipt_nota">Nota do ENEM do aluno ?</label>
+    <input type="text" id="ipt_nota">
+<br>
+    <label for="ipt_notaInterna">nota do vestibular interno do aluno?</label>
+    <input type="text" id="ipt_notaInterna">
+    
+    <button onclick="calc()">Avaliação</button>
+
+
+<script>
+function calc(){
+    var nota = ipt_nota.value
+    var interna = ipt_notaInterna.value 
+
+
+
+if(nota >= 800 || interna == 700){
+    alert  (`Parabéns! Aprovado`)
+}else{alert  (`Tente semestre que vem`)}
+}
+
+
+</script>
+
+</body>
+</html>

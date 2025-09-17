@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>Buscar Filmes:</h2>
+  
+  <span>Nome:</span>
+  <input type="text" id="ipt_nome">
+  <button onclick="pesquisarNome()">Pesquisar</button>
+
+  <span>Diretor:</span>
+  <input type="text" id="ipt_diretor">
+  <button onclick="pesquisarDiretor()">Pesquisar</button>
+
+  <span>Ano:</span>
+  <select id="ipt_ano_parametro">
+    <option value="maior_igual">&gt;=</option>
+    <option value="igual">==</option>
+    <option value="menor_igual">&lt;=</option>
+  </select>
+  <input type="number" id="ipt_ano">
+  <button onclick="pesquisarAno()">Pesquisar</button><br><br>
+
+  <span>Gênero:</span>
+  <input type="text" id="ipt_genero">
+  <button onclick="pesquisarGenero()">Pesquisar</button>
+
+  <span>Média:</span>
+  <select id="ipt_media_parametro">
+    <option value="maior_igual">&gt;=</option>
+    <option value="igual">==</option>
+    <option value="menor_igual">&lt;=</option>
+  </select>
+  <input type="text" id="ipt_media">
+  <button onclick="pesquisarMedia()">Pesquisar</button><br><br>
+
+  <button onclick="pesquisar()">Mostrar Todos</button>
+
+  <div id="div_resultado"></div>
+</body>
+</html>
+<script src="dados.js"></script>
+<script>
+  
+
+
+function pesquisarNome(){
+  var nomeIpt = ipt_nome.value.toLowerCase()
+  var mensagem = ""
+
+  for(var i = 0; i < filmes.length; i++){
+
+    if (filmes[i].nome.toLowerCase().includes(nomeIpt)){
+      mensagem += `
+      _________*___________*_____________
+      <br>
+       nome: ${filmes[i].nome}<br>
+       diretor: ${filmes[i].diretor}<br>
+       ano:${filmes[i].ano}<br>
+       generos:${filmes[i].generos}<br>
+       notas: ${filmes[i].notas}<br>
+      ` }
+
+    div_resultado.innerHTML = mensagem
+  }
+    
+}
+  
+function pesquisarDiretor(){
+  
+  var diretorIpt = ipt_diretor.value.toLowerCase()
+  var mensagem = ""
+
+  for(var i = 0; i < filmes.length; i++){
+
+    if (filmes[i].diretor.toLowerCase().includes(diretorIpt)){
+      mensagem += `
+      _________*___________*_____________
+      <br>
+       nome: ${filmes[i].nome}<br>
+       diretor: ${filmes[i].diretor}<br>
+       ano:${filmes[i].ano}<br>
+       generos:${filmes[i].generos}<br>
+       notas: ${filmes[i].notas}<br>
+      ` }
+
+    div_resultado.innerHTML = mensagem
+}
+
+}
+
+function pesquisarAno(){
+   
+  var anoParametroIpt = ipt_ano_parametro.value
+  var anoIpt = ipt_ano.value
+  var mensagem = ""
+
+
+  if (anoParametroIpt == 'menor_igual'){
+
+  for(var i = 0; i < filmes.length; i++){
+
+    if (filmes[i].ano <= anoIpt){
+      mensagem += `
+      _________*___________*_____________
+      <br>
+       nome: ${filmes[i].nome}<br>
+       diretor: ${filmes[i].diretor}<br>
+       ano:${filmes[i].ano}<br>
+       generos:${filmes[i].generos}<br>
+       notas: ${filmes[i].notas}<br>
+      ` }
+
+    div_resultado.innerHTML = mensagem
+}
+  }else if(anoParametroIpt == 'igual'){
+      for(var i = 0; i < filmes.length; i++){
+
+    if (filmes[i].ano == anoIpt){
+      mensagem += `
+      _________*___________*_____________
+      <br>
+       nome: ${filmes[i].nome}<br>
+       diretor: ${filmes[i].diretor}<br>
+       ano:${filmes[i].ano}<br>
+       generos:${filmes[i].generos}<br>
+       notas: ${filmes[i].notas}<br>
+      ` }
+
+    div_resultado.innerHTML = mensagem
+}
+
+  }else if(anoParametroIpt == 'maior_igual'){
+  for(var i = 0; i < filmes.length; i++){
+
+    if (filmes[i].ano >= anoIpt){
+      mensagem += `
+      _________*___________*_____________
+      <br>
+       nome: ${filmes[i].nome}<br>
+       diretor: ${filmes[i].diretor}<br>
+       ano:${filmes[i].ano}<br>
+       generos:${filmes[i].generos}<br>
+       notas: ${filmes[i].notas}<br>
+      ` }
+    }
+    div_resultado.innerHTML = mensagem
+}
+}
+
+function pesquisarGenero(){
+  var generoIpt = ipt_genero.value.toLowerCase()
+  var mensagem = ""
+
+  for(var i = 0; i < filmes.length; i++){
+
+    if (filmes[i].genero[includes(generoIpt)].toLowerCase()){
+      mensagem += `
+      _________*___________*_____________
+      <br>
+       nome: ${filmes[i].nome}<br>
+       diretor: ${filmes[i].diretor}<br>
+       ano:${filmes[i].ano}<br>
+       generos:${filmes[i].generos}<br>
+       notas: ${filmes[i].notas}<br>
+      ` }
+
+    div_resultado.innerHTML = mensagem
+}
+}
+</script>

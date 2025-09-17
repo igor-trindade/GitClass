@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista atv 12</title>
+</head>
+
+<body>
+
+<button onclick="calc()">Sortear número</button>
+<div id="resultado"></div>
+<br>
+<br>
+
+<div id="par"></div>
+<br>
+<div id="impar"></div>
+
+    <script>
+        var totalPares = 0
+        var totalImpares = 0
+
+        function calc() {
+            var inicio = -30
+            var fim = -9
+            var numero = Math.floor(Math.random() * (fim - inicio)) + inicio
+
+            resultado.innerHTML = `<div>Número sorteado: ${numero}</div>`
+
+            
+            if (numero % 2 === 0) {
+                totalPares++
+                par.innerHTML = `Total numeros pares: ${totalPares}`
+            } else {
+                totalImpares++
+               impar.innerHTML = `Total numeros impares: ${totalImpares}`
+            }
+        }
+    </script>
+</body>
+
+</html>

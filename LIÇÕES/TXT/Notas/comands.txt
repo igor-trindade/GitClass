@@ -1,0 +1,7 @@
+Informação Comando:
+Tipo de Processador: lscpu
+Quantidade de RAM: free -h
+Espaço em Disco: df -h
+Número de CPUs Lógicas: nproc
+Suporte a Virtualização: lscpu
+Versão do Ubuntu: lsb_release -a

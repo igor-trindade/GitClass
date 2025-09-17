@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritimo é legal</title>
+</head>
+<body>
+    <input type="text" id="ipt_idade" />
+    <button onclick="verificar()">Ir pra festa</button>
+    <div id="div_resposta"></div>
+
+    <script>
+    function verificar() {
+        var idade = Number(ipt_idade.value);
+        if (idade >= 18) {
+          div_resposta.innerHTML = ("#partiuFesta");
+        } else {
+      div_resposta.innerHTML = ("Pedir permissão pro responsável");
+        }
+      }
+ </script>
+
+</body>
+</html>

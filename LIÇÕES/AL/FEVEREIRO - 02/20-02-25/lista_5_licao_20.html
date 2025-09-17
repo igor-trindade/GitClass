@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>CALCULO ELEVADOR</h1>
+    <label for="ipt_homem">Quantidade de homens</label>
+    <input type="number" id="ipt_homem" />
+<br>
+    <label for="ipt_mulher">Quantidade de mulheres</label>
+    <input type="number" id="ipt_mulher" />
+
+    <button onclick="calcular()">Ligar elevador</button>
+    <div id="div_resposta"></div>
+
+
+    <script>
+function calcular(){
+var peso = ((ipt_homem.value*90) + (ipt_mulher.value*70))
+var perder = (peso - 500)
+ if(peso <= 500){
+    div_resposta.innerHTML = `<h1 style="color: green;">Elevador vai se mover, pois está com ${peso}Kg</h1>`
+ }else{ div_resposta.innerHTML = `<h1 style="color: red;">Alguém precisa descer. Precisa perder ${perder}kg para mover o elevador</h1>`
+
+ }
+}
+    </Script>
+</body>
+
+</html>

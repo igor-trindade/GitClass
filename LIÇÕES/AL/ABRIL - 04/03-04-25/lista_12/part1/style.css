@@ -1,0 +1,73 @@
+.img1 {
+    background-image: url(https://sismf.museudofutebol.org/anexos/imagem/475622/w:640/h:640/c:0);
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    margin: 60px
+}
+
+.img2 {
+    background-image: url(https://yt3.googleusercontent.com/HxdDIohuLXL7E2JpK97Xm1d_P4Qosm2SwnZzDWrelcBSctGglF2UPaT215JkoxSi3o1-aUgieNk=s900-c-k-c0x00ffffff-no-rj);
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    margin: 60px
+}
+
+.img3 {
+    background-image: url(https://upload.wikimedia.org/wikipedia/pt/2/2f/PaysanduSC.png);
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    margin: 60px
+}
+
+.img4 {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/5b/Mirassol_FC_logo.png);
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    margin: 60px
+}
+
+.div {
+    background-color: black;
+    color: white;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tesoura {
+    background-image: url(./imgs/tesoura.png);
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+    display: block;
+}
+
+.pedra {
+    background-image: url(./imgs/pedra.png);
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 200px;
+display: block;
+}
+
+.papel {
+
+    background-image: url(./imgs/papel.png);
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;   
+    display: block; 
+}

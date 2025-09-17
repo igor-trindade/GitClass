@@ -1,0 +1,9 @@
+package school.sptech;
+
+public class Vetores {
+    public static void main(String[] args) {
+    }
+    Integer[] vetor = new Integer[5];
+
+
+}

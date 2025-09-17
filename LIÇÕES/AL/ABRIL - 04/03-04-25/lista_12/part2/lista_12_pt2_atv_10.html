@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista atv 12</title>
+
+<body>
+    <button onclick="jogador1()">Dado Jogador 1</button>
+    <div id="resultadoJogador1"></div>
+    <br>
+
+    <button onclick="jogador2()">Dado Jogador 2</button>
+    <div id="resultadoJogador2"></div>
+    <br>
+
+    <button onclick="resultado()">Comparar Resultados</button>
+    <div id="comparacao"></div>
+
+    <script>
+        var dadoJogador1 = 0
+        var dadoJogador2 = 0
+
+        function jogador1() {
+            var inicio =  1
+            var fim = 6
+            dadoJogador1 = Math.round((Math.random() * (fim - inicio) + inicio))
+            
+           resultadoJogador1.innerHTML = `Resultado Jogador 1: ${dadoJogador1}`
+        }
+
+        function jogador2() {
+            var inicio =  1
+            var fim = 6
+            dadoJogador2 = Math.round((Math.random() * (fim - inicio) + inicio))
+            resultadoJogador2.innerHTML = `Resultado Jogador 2: ${dadoJogador2}`
+        }
+
+        function resultado() {
+            var mensagem = ""
+            if (dadoJogador1 > dadoJogador2) {
+                mensagem = "Jogador 1 venceu!"
+            } else if (dadoJogador2 > dadoJogador1) {
+                mensagem = "Jogador 2 venceu!"
+            } else {
+                mensagem = "Empate!"
+            }
+            comparacao.innerHTML = mensagem
+        }
+    </script>
+</body>
+
+</html>

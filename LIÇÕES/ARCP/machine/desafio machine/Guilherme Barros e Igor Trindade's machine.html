@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPTecher's Machine</title>
+    <link rel="stylesheet" href="css\style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Guilherme Barros e Igor Trindade's Machine <br><br>
+        <a href="soma.html">Soma</a> | <a href="subtracao.html">Subtração</a></h1>
+    </header>
+
+    <fieldset>
+        <legend>Escolha um sistema numérico para converção</legend>
+
+        <label for="rad_decimal"></label>Decimal: </label>
+        <input type="radio" id="rad_decimal" name="sistemasNum" value="decimal">
+
+        <label for="rad_octal">Octal: </label>
+        <input type="radio" id="rad_octal" name="sistemasNum" value="octal">
+
+        <label for="rad_octal">Hexadecimal: </label>
+        <input type="radio" id="rad_hexadecimal" name="sistemasNum" value="hexadecimal">
+
+        <label for="rad_octal">Binário: </label>
+        <input type="radio" id="rad_binario" name="sistemasNum" value="binario">
+
+    </fieldset>
+
+    <h3>Digite um número nos padrões daquele sistema:</h3>
+    <input id="demo0" type="text" placeholder="Ex: 42">
+    <br><br>
+
+    <button onclick="converter()">Converter</button>
+
+    <h3>Resultados: </h3>
+
+    <div id="div_respostas">
+
+        <p id="p_decimal"></p>
+
+        <p id="p_octal"></p>
+
+        <p id="p_hexadecimal"></p>
+
+        <p id="p_binario"></p>
+    </div>
+
+    <footer>Guilherme Barros RA: 04251027 <br>
+        Igor Trindade RA: 04251001
+    </footer>
+
+    <script>
+        var numeroDigitado = 0
+
+        function converter() {
+            var sistemaDecimal = rad_decimal.checked;
+            var sistemaOctal = rad_octal.checked;
+            var sistemaHexadecimal = rad_hexadecimal.checked;
+            var sistemaBinario = rad_binario.checked;
+
+            if (sistemaDecimal) {
+                numeroDigitado = parseInt(demo0.value, 10) // Créditos a dupla Anna e Renan pelo parseInt
+                p_decimal.innerHTML = ``;
+                p_octal.innerHTML = `Octal: ${numeroDigitado.toString(8)}`;
+                p_hexadecimal.innerHTML = `Hexadecimal: ${numeroDigitado.toString(16)}`;
+                p_binario.innerHTML = `Binário: ${numeroDigitado.toString(2)}`;
+            }
+
+            if (sistemaOctal) {
+                numeroDigitado = parseInt(demo0.value, 8) // Créditos a dupla Anna e Renan pelo parseInt
+                p_decimal.innerHTML = `Decimal: ${numeroDigitado.toString(10)}`;
+                p_octal.innerHTML = ``;
+                p_hexadecimal.innerHTML = `Hexadecimal: ${numeroDigitado.toString(16)}`;
+                p_binario.innerHTML = `Binário: ${numeroDigitado.toString(2)}`;
+            }
+
+            if (sistemaHexadecimal) {
+                numeroDigitado = parseInt(demo0.value, 16) // Créditos a dupla Anna e Renan pelo parseInt
+                p_decimal.innerHTML = `Decimal: ${numeroDigitado.toString(10)}`;
+                p_octal.innerHTML = `Octal: ${numeroDigitado.toString(8)}`;
+                p_hexadecimal.innerHTML = ``;
+                p_binario.innerHTML = `Binário: ${numeroDigitado.toString(2)}`;
+            }
+
+            if (sistemaBinario) {
+                numeroDigitado = parseInt(demo0.value, 2) // Créditos a dupla Anna e Renan pelo parseInt
+                p_decimal.innerHTML = `Decimal: ${numeroDigitado.toString(10)}`;
+                p_octal.innerHTML = `Octal: ${numeroDigitado.toString(8)}`;
+                p_hexadecimal.innerHTML = `Hexadecimal: ${numeroDigitado.toString(16)}`;
+                p_binario.innerHTML = ``;
+            }
+        }
+    </script>
+</body>
+
+</html>

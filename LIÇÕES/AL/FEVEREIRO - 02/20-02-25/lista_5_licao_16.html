@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="ipt_totalcomprado">Quantidade de chocolates comprados:</label>
+    <input type="number" id="ipt_totalcomprado" />
+
+    <button onclick="resposta()">Compra</button>
+    <div id="resultado"></div>
+
+    <Script>
+        function resposta() {
+            var comprado = ipt_totalcomprado.value
+            var promo = comprado * 2.50
+            var Sempromo = comprado * 3
+
+            if (comprado > 12) {
+                resultado.innerHTML = `<h1>o valor da sua compra foi de ${promo}</h1>`
+            } else if (comprado <= 12) { resultado.innerHTML = `<h1> o valor da sua compra foi de ${Sempromo}</h1>` }
+        }
+
+
+    </Script>
+</body>
+
+</html>

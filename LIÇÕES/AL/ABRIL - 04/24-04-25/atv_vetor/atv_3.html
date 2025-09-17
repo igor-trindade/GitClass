@@ -1,0 +1,59 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="ipt_bairros">Bairros onde Morou?</label>
+    <input type="text" id="ipt_bairros">
+    <button onclick="add()">Cadastrar bairro</button>
+    <br>
+    <label for="ipt_numOndeMorou">Qual bairro deseja recordar? </label>
+    <input type="number" id="ipt_numOndeMorou">
+
+    <button onclick="RelembrarMoradia()">Relembrar moradia</button>
+
+
+    <div id="resposta"></div>
+</body>
+
+<script>
+var bairrosJaMorados = []
+var mensagem = ''
+var contador = -1
+var vezesAdicionadas = 0
+
+function add(){
+   var bairrosInformados = ipt_bairros.value
+   
+   
+if(bairrosInformados == ''){
+    alert( `Para adicionar precisamos saber o que adicionar né? Insira algo ai fiote`)
+    return;}
+    vezesAdicionadas ++
+    bairrosJaMorados.push(bairrosInformados)
+    alert(` Bairro: ${bairrosInformados} adicionado!`)}
+
+
+
+
+function RelembrarMoradia(){
+var numeroRecordar = ipt_numOndeMorou.value
+
+if(bairrosJaMorados[0]==null){alert(`Usuario ainda não informou onde já morou`) 
+    return;}
+
+
+for (var i = 0; i <= (numeroRecordar-1); i++ ){
+    mensagem = bairrosJaMorados[i] }
+
+    if(mensagem == undefined){alert(`Você ainda não morou num ${numeroRecordar}º bairro!`) 
+    return;}
+resposta.innerHTML = mensagem}
+</script>
+
+
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista atv 12</title>
+</head>
+
+<body>
+   
+        <div>Jogador 1: 
+        <div id="div_jogador1"></div>
+       </div>
+
+        <div>Jogador 2: 
+        <div id="div_jogador2"></div>
+       </div>
+
+        <div>Empates: 
+        <div id="div_empate"></div>
+        </div>
+   
+    <button onclick="calc()">Jogar</button>
+    <div id="resultado"></div>
+
+    <script>
+        var ptsjogador1 = 0
+        var ptsjogador2 = 0
+        var empates = 0
+
+        function calc() {
+          
+
+            var inicio = 1
+            var fim = 6
+            var jogador1 = Math.floor(Math.random() * (fim - inicio)) + inicio
+
+            var inicio = 1
+            var fim = 6
+            var jogador2 = Math.floor(Math.random() * (fim - inicio)) + inicio
+
+
+            if (jogador1 > jogador2) {ptsjogador1++}
+       else if (jogador2 > jogador1) {ptsjogador2++} 
+       else {empates++}
+
+
+            if (ptsjogador1 > ptsjogador2) {
+                resultado.innerHTML = `
+                    Jogador 1 sorteou: ${jogador1}<br>
+                    Jogador 2 sorteou: ${jogador2}<br>
+                    O jogador 1 está vencendo!`
+
+            } else if (ptsjogador2 > ptsjogador1) {
+       
+                resultado.innerHTML = `
+                    Jogador 1 sorteou: ${jogador1}<br>
+                    Jogador 2 sorteou: ${jogador2}<br>
+                    O jogador 2 está vencendo!`
+            } else {
+                resultado.innerHTML = `
+                    Jogador 1 sorteou: ${jogador1}<br>
+                    Jogador 2 sorteou: ${jogador2}<br>
+                    O jogo está empatado!`
+            }
+
+
+
+
+
+
+
+            
+
+            div_jogador1.innerHTML = ptsjogador1
+            div_jogador2.innerHTML = ptsjogador2
+            div_empate.innerHTML = empates
+        }
+    </script>
+</body>
+
+</html>

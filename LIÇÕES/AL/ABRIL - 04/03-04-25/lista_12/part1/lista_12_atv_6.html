@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista atv 12</title>
+</head>
+
+<body>
+    <button onclick="calc()">Sortear momento do dia</button>
+    <div id="resposta"></div>
+
+    <script>
+        function calc() {
+            var inicio = 0
+            var fim = 23.1
+            var HoraSort =Math.round((Math.random() * (fim - inicio) + inicio))
+
+            var mensagem = ""
+
+
+
+            if (HoraSort >= 0 && HoraSort <= 11) {
+                mensagem = `Bom dia, flor do dia, são ${HoraSort}h!`
+            } else if (HoraSort >= 12 && HoraSort <= 17) {
+                mensagem = `Boa tarde, já vai tarde! São ${HoraSort}h!`
+            } else {
+                mensagem = `Boa noite, durma bem! São ${HoraSort}h!`
+            }
+
+            resposta.innerHTML = mensagem
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>algoritimo é legal</title>
+</head>
+<body>
+    <h1>Calculadora de cansaço do aluno SPTech</h1>
+
+    <label for="ipt_transporte">Informe:</label>
+    <input type="text" id="ipt_transporte" placeholder="Meio de transporte">
+  
+    <button onclick="calc()">Calcular cansaço</button>
+<h5>Suas opções:
+<br>
+• Ônibus 
+<br>
+•  Metrô 
+<br>
+• Carro 
+<br>
+• Bicicleta 
+<br>
+• Uber
+</h5>
+<br>
+
+<label for="ipt_km">Distância da faculdade (KM)</label>
+<input type="number" id="ipt_km" placeholder="23KM">
+
+<script>
+
+function calc(){
+var transporte = ipt_transporte.value
+var km = ipt_km.value
+
+if(transporte != 'Ônibus' && transporte != 'Metrô' && transporte != 'Carro' && transporte != 'Bicicleta'&& transporte != 'Uber'){
+    alert  (`Metodo de transporte Invalido Revise os dados inseridos!!`)
+}else if (km <=10){
+
+    if(transporte == 'Carro' || transporte =='Metrô'|| transporte =='Ônibus'){
+        alert  (`Tá tranks...`)
+}else{alert("É... um pouco cansado...")}
+
+}else{ 
+    if(transporte == 'Carro'){
+        alert  (`É... um pouco cansado...`)
+} else if(transporte == 'Metrô'|| transporte =='Ônibus'){
+    alert  (`Bem cansado...`)
+}else{ alert("Vish... tá só o pó...")}
+}
+}
+
+</script>
+</body>
+</html>
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algoritimo é legal</title>
+  </head>
+  <body>
+
+    <h1>Análise de Financiamento Habitacional</h1>
+    <label for="ipt_renda">valor da renda familiar</label>
+    <input type="number" id="ipt_renda" />
+    <br>
+    <label for="ipt_prestacao">valor da prestação</label>
+    <input type="number" id="ipt_prestacao" />
+
+    <button onclick="calcular()">Verificar financiamento</button>
+    <div id="div_resposta"></div>
+
+
+
+    <script>
+      function calcular() {
+        var fincanciamento = (ipt_prestacao.value/ipt_renda.value)*100
+
+        if ( fincanciamento <= 30) {
+          div_resposta.innerHTML = `<h1>A prestação corresponde a ${fincanciamento}%</h1>`;
+        } else {
+          div_resposta.innerHTML = `<h1 style="color: red;"><b>Será necessário complementar a renda familiar</b></h1>`;
+        }
+      }
+    </script>
+  </body>
+</html>

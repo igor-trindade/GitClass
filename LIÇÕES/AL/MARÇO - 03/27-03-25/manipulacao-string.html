@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_frase">
+<button onclick="calc()"> Analisar frase</button>
+
+<div id="resultado"></div>
+</body>
+
+<script>
+    function calc(){
+        var fraseDigitada = ipt_frase.value;
+        resultado.innerHTML = ""
+        var fraseFinal = ""
+
+
+
+var tamanhoFrase = fraseDigitada.length
+fraseFinal += `Tamanho da Frase: ${tamanhoFrase} <br>`
+
+
+var terminaComPontoCom = fraseDigitada.endsWith(".com")
+fraseFinal += `Termina com ".com"?: ${terminaComPontoCom} <br>`
+
+var terminaComPontoBR = fraseDigitada.endsWith(".br")
+fraseFinal += `Termina com ".br"?: ${terminaComPontoBR} <br>`
+
+
+var comecaComEu = fraseDigitada.endsWith("Eu ")
+fraseFinal += `Começa com "eu"?: ${comecaComEu} <br>`
+
+
+var primeiraLetra = fraseDigitada[0]
+fraseFinal += `Primerira letra [0]: ${primeiraLetra}<br>`
+
+
+var letraPosicao3 = fraseDigitada[3]
+fraseFinal += `Terceira letra [3]: ${letraPosicao3}<br>`
+
+
+
+var letraPosicao3 = fraseDigitada[3]
+fraseFinal += `Terceira letra [3]: ${letraPosicao3}<br>`
+
+
+var ultimaPosicao = fraseDigitada[tamanhoFrase - 1]
+fraseFinal += `Ultima Posição: ${ultimaPosicao}<br>`
+
+var indiceDoBob = fraseDigitada.indexOf("bob")
+fraseFinal += `indice onde bob foi encontrado: ${indiceDoBob}<br>`
+
+var possuiBob = fraseDigitada.includes("bob")
+fraseFinal += `possui Bob na string?: ${possuiBob}<br>`
+
+var fraseMaiuscula = fraseDigitada.toUpperCase()
+fraseFinal += `Frase maiuscula?: ${fraseMaiuscula}<br>`
+
+var fraseCaixaBaixa = fraseDigitada.toLowerCase()
+fraseFinal += `Frase maiuscula?: ${fraseCaixaBaixa}<br>`
+
+
+
+resultado.innerHTML = fraseFinal
+
+
+
+
+
+    }
+</script>
+</html>

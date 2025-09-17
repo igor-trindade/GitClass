@@ -1,0 +1,38 @@
+set.seed(123)
+pop <- 200000
+n <- 20000
+## rnorm gera dados aleatorios 
+idade <- round(abs(rnorm(n, 37, 7)))
+
+altura <- round(abs(rnorm(n, 1.50, 0.20)),2)
+
+peso <- round(abs(rnorm(n, 55, 4)),2)
+
+imc <- round(peso/(altura^2),2)
+
+salario <- round(abs(rnorm(n, 3000, 400)),2)
+
+carros <- sample(0:3, n, replace=TRUE)
+
+semple 
+filhos <- sample(0:2, n, replace=TRUE)
+
+
+
+escolaridade <- factor(sample(0:6, n, replace=TRUE),
+                       levels=0:6,
+                       labels=c("Analfabeto","1º grau","2º grau","3º grau","Mestrado","Doutorado","Pós-doutorado"),
+                       ordered=TRUE)
+fumante <- factor(rbinom(n,1,0.4),
+                  levels=c(0,1),
+                  labels=c("Não","Sim"),
+                  ordered=TRUE)
+sexo <- factor(sample(c(1,2), n, replace=TRUE),
+               levels=c(1,2),
+               labels=c("Masculino","Feminino"))
+profissao <- factor(sample(1:3, n, replace=TRUE),
+                    labels=c("Humanas","Exatas","Biológicas"))
+
+df <- data.frame(idade, altura, peso, imc, salario, carros, filhos, escolaridade, fumante, sexo, profissao)
+
+write.csv(df, "amostra_IMC.csv", row.names=FALSE)

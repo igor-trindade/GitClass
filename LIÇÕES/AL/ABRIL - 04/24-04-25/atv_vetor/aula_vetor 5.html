@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filmes Favoritos - Painel</title>
+</head>
+<body>
+    <input type="text" id="filme_digitado">
+    <button onclick="adicionar()">Cadastrar Filme</button>
+    <div id="frase"></div>
+
+    <script>
+        var filmes = [];
+
+        function adicionar(){
+            var filmeNovo = filme_digitado.value;
+            filmes.push(filmeNovo);
+            atualizarPainel();
+            alert("Filme adicionado!");
+        }
+
+        function atualizarPainel(){
+            var fraseFinal = '';
+            var quantidadeFilmes = filmes.length;
+
+            if (quantidadeFilmes >= 1){
+                fraseFinal += `Seu filme favorito: ${filmes[0]}<br>`;
+            } else {
+                fraseFinal += `Seu filme favorito: Ainda não existe<br>`;
+            }
+
+            if (quantidadeFilmes >= 3){
+                fraseFinal += `Seu 3º filme favorito: ${filmes[2]}<br>`;
+            } else {
+                fraseFinal += `Seu 3º filme favorito: Ainda não existe<br>`;
+            }
+
+            fraseFinal += `Total de filmes cadastrados: ${quantidadeFilmes}`;
+            frase.innerHTML = fraseFinal;
+        }
+    </script>
+</body>
+</html>

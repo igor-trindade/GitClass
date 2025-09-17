@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritimo é legal</title>
+</head>
+<body>
+    <h1>ANALISE FAMILIA</h1>
+
+    <label for="ipt_filho">Quantidade de Filhos:</label>
+    <input type="number" id="ipt_filho" />
+    <button onclick="resposta()">Analisar família</button>
+    <div id="resultado"></div>
+    <Script>
+        function resposta(){
+
+if(ipt_filho.value >= 1){
+    resultado.innerHTML =  `<h1>Não tem TV</h1>`
+}
+if(ipt_filho.value >= 2){
+    resultado.innerHTML = `<h1>Não tem TV<br>Não tem internet </h1>`
+}
+if(ipt_filho.value >= 3){
+    resultado.innerHTML = `<h1>Não tem TV<br> Não tem internet <br> Não tem video game</h1>`
+}
+if(ipt_filho.value >= 4){
+    resultado.innerHTML = `<h1>Não tem TV<br> Não tem internet <br> Não tem video game  <br>Não tem Netflix </h1>`
+}
+        }
+    </Script>
+
+
+
+
+</body>
+</html>

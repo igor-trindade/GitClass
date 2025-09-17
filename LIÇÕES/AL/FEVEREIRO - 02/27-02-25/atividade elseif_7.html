@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<h1>Sua Dieta Está Saudável?</h1>
+
+    <label for="ipt_pao">Qtd Pães franceses tem comido por dia?</label>
+    <input type="text" id="ipt_pao">
+<br>
+    <label for="ipt_bolacha">Qtd bolacha recheada tem comido por dia?</label>
+    <input type="text" id="ipt_bolacha">
+<br>
+    <label for="ipt_copo">Qtd copos de achocolatado tem bebido por dia?</label>
+    <input type="text" id="ipt_copo">
+<br>
+    <button onclick="acao()">Verificar calorias</button>
+    <div id="resultado"></div>
+    
+    <script>
+        function acao() {
+           
+            var bread = (50*ipt_pao.value)
+            var cracker = (80*ipt_bolacha.value)
+            var choc = (70*ipt_copo.value)
+
+            var caloria = (bread + cracker + choc)
+           
+if (caloria < 200) {
+                             resultado.innerHTML = `<h1> ${caloria} Calorias. Parabéns, vai ficar em forma!</h1>`
+} else if(caloria <= 400){
+                             resultado.innerHTML = `<h1>${caloria} Calorias. Cuidado, vai ficar menos saudável !</h1>`
+}else if(caloria > 400){
+                             resultado.innerHTML = `<h1>${caloria} Calorias. Alerta crítico de saúde !!!</h1>`
+}
+}
+    </script>
+
+</body>
+
+</html>

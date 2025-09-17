@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <input type="text" id="ipt_numero" />
+    <button onclick="avaliarNumero()">Mostrar Resposta</button>
+    <div id="div_resposta"></div>
+
+    <script>
+      function avaliarNumero(){
+        var numeroResposta = 42;
+        var numeroDigitado = Number(ipt_numero.value);
+
+        if (numeroDigitado > numeroResposta) {
+          div_resposta.innerHTML = `Seu numero é maior, tente outro`;
+        }
+      if(numeroDigitado < numeroResposta){
+        div_resposta.innerHTML = `Seu numero é menor, tente outro`
+      }
+      if(numeroDigitado == numeroResposta){
+      div_resposta.innerHTML = `aaaahhhhhhnnnnnnn zé da manga a resposta é ${numeroResposta}`
+      }
+      }
+    </script>
+  </body>
+</html>

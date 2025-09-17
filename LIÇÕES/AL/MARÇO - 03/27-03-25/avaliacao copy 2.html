@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação</title>
+</head>
+<body>
+    <label for="qtd_batalhas">Quantidade de Batalhas:</label>
+    <input id="qtd_batalhas" type="number" placeholder="2">
+    <br>
+    <label for="qtd_carnes">Quantidade de Carnes Estocadas:</label>
+    <input id="qtd_carnes" type="number" placeholder="1">
+    <br>
+    <label for="qtd_marinheiros">Quantidade de Marinheiros por Batalha:</label>
+    <input id="qtd_marinheiros" type="number" placeholder="10">
+    <br>
+    <button onclick="calc()">Batalhar</button>
+
+    <div id="resposta"></div>
+
+    <script>
+        function calc() {
+            var batalhas = qtd_batalhas.value
+            var carnes = qtd_carnes.value
+            var marinheiros = qtd_marinheiros.value
+
+            var luffy = 100;
+            for (var i = 1; i <= batalhas; i++) {
+                var carnesConsumidas = 0;
+                var marinheirosDerrotados = 0;
+
+                while (marinheirosDerrotados < marinheiros) {
+                    luffy -= 5;
+                    marinheirosDerrotados++;
+
+                    if (luffy <= 0) {
+                        if (carnes > 0) {
+                            luffy = 100;
+                            carnes--;
+                            carnesConsumidas++;
+                        } else {
+                            resposta.innerHTML += `<p>${i}ª Batalha:<br>
+                            Quantidade de marinheiros: ${marinheiros}<br>
+                            Quantidade de carne em estoque: ${carnes}<br>
+                            Resultado: Luffy foi derrotado, comeu ${carnesConsumidas} carne(s), derrotou ${marinheirosDerrotados} marinheiro(s) e sobrou 0 pontos de energia.</p><hr>`;
+                            return;
+                        }
+                    }
+                }
+
+                resposta.innerHTML += `<p>${i}ª Batalha:<br>
+                Quantidade de marinheiros: ${marinheiros}<br>
+                Quantidade de carne em estoque: ${carnes}<br>
+                Resultado: Luffy saiu vitorioso, comeu ${carnesConsumidas} carne(s), derrotou ${marinheirosDerrotados} marinheiro(s) e sobrou ${luffy} pontos de energia.</p><hr>`;
+            }
+        }
+    </script>
+</body>
+</html>

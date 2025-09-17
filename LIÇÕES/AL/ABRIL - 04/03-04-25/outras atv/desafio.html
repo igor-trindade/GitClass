@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dafio de Doido</title>
+</head>
+
+<body>
+    <label for="ipt_qtdMusicas">Quantidade de músicas:</label>
+    <input id="ipt_qtdMusicas" type="number">
+    <button onclick="calc()">Começar Show</button>
+
+
+</body>
+<script>
+function calc() {
+    var qtdMusicas = Number(ipt_qtdMusicas.value)
+    var ultimaMusica = ""
+    var musicasApro = 0
+    var musicasRepro = 0
+    var musicasTocadas = ""
+    
+    for (var i = 1; i <= qtdMusicas;) {
+         var musica = prompt("Qual nome da música?")
+        
+        if (musica === ultimaMusica) {
+            alert("Essa música acabou de tocar, escolha outra:")
+        
+        
+        } else {
+            alert(`Tocando ${i}ª música: ${musica}`)
+            var resposta = prompt("Você gosta dela? (sim/não)").toLowerCase()
+            
+            
+            if (resposta === "sim") {
+                musicasApro++} 
+                
+                else if (resposta === "não") {
+                musicasRepro++}
+            
+            musicasTocadas += musica + ", "
+            ultimaMusica = musica
+            i++}}
+    
+alert(`Resumo Final:
+       \nTotal de Musicas Tocadas: ${qtdMusicas}
+       \nMusicas Aprovadas: ${musicasApro}
+       \nMusicas Reprovadas: ${musicasRepro}`)}
+</script>
+</html>

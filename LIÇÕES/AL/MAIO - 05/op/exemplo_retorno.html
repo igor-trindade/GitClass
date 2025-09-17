@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_idade">
+    <button onclick="podeBeber()"> Pode Beber?</button>
+    <button onclick="podeSeAlistar()">Pode Se Alistar?</button>
+    <button onclick="podeSerPreso()">Pode Se Alistar?</button>
+
+    <div id="resultado"></div>
+    
+</body>
+<script>
+
+    function isMaior(idade){
+    if(idade >= 18){
+    resultado.innerHTML = `É maior de idade.<br>`
+    return true
+    }else{resultado.innerHTML = `É maior de idade.<br>`
+    return false
+    }
+    }
+
+
+    function podeBeber(){
+
+    var idadeDigitada = ipt_idade.value
+    var retornoIsMaior = isMaior(idadeDigitada)
+    console.log("Retorno:", retornoIsMaior);
+    
+    if(retornoIsMaior){
+        resultado.innerHTML += `Já Pode beber <br>`
+    }else{
+        resultado.innerHTML += `Não Pode beber <br>`
+    }
+
+    }
+
+    function podeSeAlistar(){
+    
+    var idadeDigitada = ipt_idade.value
+    var retornoIsMaior = isMaior(idadeDigitada)
+
+    if(retornoIsMaior){
+        resultado.innerHTML +=`Já Pode se Alistar <br>`
+    }else{
+        resultado.innerHTML += `Não Pode ser Alistar <br>`
+    }
+    
+    }
+    function podeSerPreso(){
+    var idadeDigitada = ipt_idade.value
+    var retornoIsMaior = isMaior(idadeDigitada)
+
+    if(retornoIsMaior){
+        resultado.innerHTML += `É maior de idade. Já Pode ser Preso <br>`
+    }else{
+        resultado.innerHTML += `É menor de idade. Não Pode ser Preso <br>`
+    }
+    }
+</script>
+
+
+</html>

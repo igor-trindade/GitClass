@@ -1,0 +1,35 @@
+criptografado:          90  8b b4 8c 9e 8d
+
+transforme em binário: 
+ex:
+
+1111 0000 | 90
+1111 0000 | 8b	
+1111 0000 | b4
+1111 0000 | 8c
+1111 0000 | 9e
+1111 0000 | 8d
+
+ faça pares e inverta, 1 fica no lugar do 2 
+
+1111 0000 | 1
+1111 0000 | 2	
+
+1111 0000 | 1
+1111 0000 | 2
+
+1111 0000 | 1
+1111 0000 | 2
+
+coloque na nova sequencia  e inverta polaridade 
+
+0000 1111 | 0000 1111 | 0000 1111 | 0000 1111 | 0000 1111 | 0000 1111 | 
+
+quebre no meio e mude as posições 1 vira 2. 
+
+0000 1111 | 0000 1111 | 0000 1111 | 1 
+0000 1111 | 0000 1111 | 0000 1111 |  2 
+
+Pronto agora com a tabela descubra a palavra 
+
+0000 1111 | 0000 1111 | 0000 1111 | 0000 1111 | 0000 1111 | 0000 1111 |

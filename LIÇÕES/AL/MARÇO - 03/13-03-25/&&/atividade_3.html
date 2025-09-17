@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="ipt_rendaIndiv">renda individual do usuário?</label>
+    <input type="text" id="ipt_rendaIndiv">
+<br>
+    <label for="ipt_rendaFami">nota do vestibular interno do aluno?</label>
+    <input type="text" id="ipt_rendaFami">
+    
+    <button onclick="calc()">Terei o benefício</button>
+
+
+<script>
+function calc(){
+    var individual = ipt_rendaIndiv.value
+    var familia = ipt_rendaFami.value 
+
+
+
+if(individual <= 2000  || familia == 3000 ){
+    alert  (`Você terá direito ao auxílio! Aprovado`)
+}else{alert  (`Sem direito ao auxílio`)}
+}
+
+
+</script>
+
+</body>
+</html>

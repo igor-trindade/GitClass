@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 11</title>
+</head>
+
+<body>
+
+    <label for="ipt_num">Digite tabuada que vc quer: </label>
+    <input type="number" id="ipt_num">
+<br>
+    <label for="ipt_num2">Digite até que número será a tabuada: </label>
+    <input type="number" id="ipt_num2">
+
+    <button onclick="contar()">Ver Tabuada</button>
+
+    <div id="div_resposta"></div>
+
+</body>
+<script>
+
+    function contar() {
+        var num2 = Number(ipt_num2.value)
+        var num = Number(ipt_num.value)
+        var i = 0
+        var resto = 0
+
+        if (num >= 2 && num <= 9) {
+            while (i <= num2) {
+               
+                var resul = num * i
+                resto = resul
+
+while (resto >= 2) {resto -= 2;}
+                
+if (resto === 0) {div_resposta.innerHTML += `<p style="color: blue;">${num} x ${i} = ${resul}</p>`} 
+else {div_resposta.innerHTML += `<p style="color: red;">${num} x ${i} = ${resul}</p>`}
+i++;
+                
+}
+}
+}
+
+</script>
+
+</html>

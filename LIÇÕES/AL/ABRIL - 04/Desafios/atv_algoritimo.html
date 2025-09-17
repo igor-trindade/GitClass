@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="ipt_nome">Nome do produto</label>
+    <input type="text" name="" id="ipt_nome">
+    <br>
+    <label for="ipt_codigo">Código do produto</label>
+    <input type="text" name="" id="ipt_codigo">
+    <br>
+    <label for="ipt_qtd">Quantidade de produto</label>
+    <input type="number" name="" id="ipt_qtd">
+
+    <br>
+
+    <button onclick="cadastrar()">Cadastrar Produto</button>
+
+    <button onclick="repor()">Repor Estoque</button>
+
+    <button onclick="vender()">Vender Produto</button>
+
+    <button onclick="relatorio()">Exibir Relatório</button>
+    <br>
+    <div id="reposta"></div>
+    <br>
+    <br>
+    <div id="repostaRelatorio"></div>
+</body>
+
+<script>
+    var produtos = []
+    var cods = []
+    var qtds = []
+    var mensagem = ''
+
+    var produtosVendidos = []
+    var produtoMaisVendido = ''
+    var produtoMenosVendido = ''
+    var qtdMaisVendido = 0
+    var qtdMenosVendido = Infinity
+
+    function cadastrar() {
+        var nomeIpt = ipt_nome.value
+        var codIpt = Number(ipt_codigo.value)
+        var qtdIpt = Number(ipt_qtd.value)
+
+
+        // validando
+        if (nomeIpt == '' ||
+            codIpt == '' ||
+            qtdIpt == '') {
+            alert("Preencha todos os campos para registrar um novo produto")
+            return;
+        } else if (qtdIpt < 10) {
+            alert("Quantidade de Produtos deve ser no minimo 10 unidades")
+            return;
+        }
+
+        // cadastrando 
+        var liberarCadastro = true
+
+        for (var i = produtos.length - 1; i >= 0; i--) {
+            if (produtos[i] == nomeIpt) {
+                liberarCadastro = false
+                liberarCadastro
+                alert("Nome do produto já existente")
+                return;
+                break;
+            } else if (cods[i] == codIpt) {
+                liberarCadastro = false
+                alert("Código de produto já existente")
+                return;
+                break;
+            }
+        }
+
+        if (liberarCadastro == true) {
+            produtos.push(nomeIpt)
+            cods.push(codIpt)
+            qtds.push(qtdIpt)
+            alert(`Produto ${nomeIpt} registrado com sucesso`)
+            console.log(produtos, cods, qtds)
+        }
+    }
+
+    function repor() {
+
+        var nomeIpt = ipt_nome.value
+        var codIpt = ipt_codigo.value
+        var qtdIpt = Number(ipt_qtd.value)
+
+
+        // validando
+        if (nomeIpt == '' ||
+            codIpt == '' ||
+            qtdIpt == '') {
+            alert("Preencha todos os campos para repor um novo produto")
+            return;
+        } else if (qtdIpt < 10) {
+            alert("Quantidade de Produtos deve ser no minimo 10 unidades")
+            return;
+        }
+
+        var podutoLocalizado = false
+        var codigoLocalizado = false
+
+        var arrayProduto = null
+        var arrayCod = null
+
+
+
+
+        for (var i = produtos.length - 1; i >= 0; i--) {
+
+            if (produtos[i] == nomeIpt) {
+                podutoLocalizado = true
+                arrayProduto = i
+                console.log('Produto localizado')
+            }
+
+            if (cods[i] == codIpt) {
+                codigoLocalizado = true
+                arrayCod = i
+                console.log('Código localizado')
+            }
+        }
+
+        if (podutoLocalizado == false && codigoLocalizado == false) {
+            alert('Produto e Código Não Localizados')
+            return;
+        }
+        else if (podutoLocalizado == false) {
+            alert('Produto Não Localizado')
+            return;
+        }
+        else if (codigoLocalizado == false) {
+            alert('Código Não Localizado')
+            return;
+        }
+
+
+
+
+        if (arrayProduto != arrayCod) {
+            alert('Produto e o Código não estão vinculados, Valide os dados inseridos')
+        } else {
+            qtds[arrayProduto] += qtdIpt
+
+
+            var repor = '<b style="color: green;" >Ok!</b>'
+
+            if (qtds[arrayProduto] < 10) {
+                repor = '<b style="color: red;" >Precisa Repor!</b>'
+            }
+
+            console.log(qtds[arrayProduto])
+            alert(`${qtdIpt}X do ${nomeIpt} foi reposto com sucesso!`)
+            mensagem += `<br><b>Repor:</b> Código: ${codIpt} | Produto: ${nomeIpt} | Quantidade em Estoque: ${qtds[arrayProduto]} (${repor})`
+            reposta.innerHTML = mensagem
+        }
+
+    }
+
+    function vender() {
+        reposta.innerHTML = ''
+        var nomeIpt = ipt_nome.value
+        var codIpt = ipt_codigo.value
+        var qtdIpt = Number(ipt_qtd.value)
+
+
+        // validando
+        if (nomeIpt == '' ||
+            codIpt == '' ||
+            qtdIpt == '') {
+            alert("Preencha todos os campos para Vender um novo produto")
+            return;
+        }
+
+        var podutoLocalizado = false
+        var codigoLocalizado = false
+
+        var arrayProduto = null
+        var arrayCod = null
+
+
+        for (var i = produtos.length - 1; i >= 0; i--) {
+
+            if (produtos[i] == nomeIpt) {
+                podutoLocalizado = true
+                arrayProduto = i
+                console.log('Produto localizado')
+            }
+
+            if (cods[i] == codIpt) {
+                codigoLocalizado = true
+                arrayCod = i
+                console.log('Código localizado')
+            }
+        }
+
+        if (podutoLocalizado == false && codigoLocalizado == false) {
+            alert('Produto e Código Não Localizados')
+            return;
+        }
+        else if (podutoLocalizado == false) {
+            alert('Produto Não Localizado')
+            return;
+        }
+        else if (codigoLocalizado == false) {
+            alert('Código Não Localizado')
+            return;
+        }
+
+        if (arrayProduto != arrayCod) {
+            alert('Produto e o Código não estão vinculados, Valide os dados inseridos')
+        } else if (qtds[arrayProduto] >= qtdIpt) {
+            var repor = '<b style="color: green;" >Ok!</b>'
+            qtds[arrayProduto] -= qtdIpt
+            produtosVendidos.push(nomeIpt)
+
+            if (qtds[arrayProduto] < 10) {
+                repor = '<b style="color: red;" >Precisa Repor!</b>'
+            }
+            console.log(qtds[arrayProduto])
+            alert(`${qtdIpt}X do ${nomeIpt} foi vendido com sucesso!`)
+
+
+
+            mensagem += `<br><b>Vendas:</b> Código: ${codIpt} | Produto: ${nomeIpt} | Quantidade em Estoque: ${qtds[arrayProduto]} (${repor}) `
+            reposta.innerHTML = mensagem
+
+        } else { alert(`Quantidade Solicitada não disponivel em estoque! \n Total em estoque: ${qtds[arrayProduto]}X \n Faltam ${qtdIpt - qtds[arrayProduto]}X`) }
+
+
+
+    }
+
+    function relatorio() {
+
+
+        mensagem = ''
+        var mensagemRelatorio = '<br><center><b>RELATÓRIO</b></center> <br>'
+        var totalProdutos = 0
+
+        var qtdMaior = 0
+        var ProdMaiorqtd = ''
+
+        var ProdMenorqtd = ''
+        var qtdMenor = Number(Infinity)
+
+        for (var i = 0; i < produtos.length; i++) {
+
+            var repor = '<b style="color: green;" >Ok!</b>'
+            if (qtds[i] < 10) { repor = '<b style="color: red;" >Precisa Repor!</b>' } console.log(qtds[i])
+
+            mensagemRelatorio += `<center><br>_____________________________________________________\n
+        <br>Código: ${cods[i]} | Produto: ${produtos[i]} | Quantidade em Estoque: ${qtds[i]} (${repor})</center> `
+            totalProdutos += qtds[i]
+
+
+            // Desafio
+            if (qtds[i] > qtdMaior) {
+                ProdMaiorqtd = produtos[i]
+                qtdMaior = qtds[i]
+            }
+
+
+
+            if (qtds[i] < qtdMenor) {
+                ProdMenorqtd = produtos[i]
+                qtdMenor = qtds[i]
+            }
+
+        }
+
+
+
+        for (var i = 0; i < produtosVendidos.length; i++) {
+            var item = produtosVendidos[i];
+            var contador = 0;
+
+            for (var j = 0; j < produtosVendidos.length; j++) {
+                if (produtosVendidos[j] === item) {
+                    contador++
+                }
+            }
+
+            if (contador > qtdMaisVendido) {
+                qtdMaisVendido = contador
+                produtoMaisVendido = item
+            }
+        }
+
+        qtdMenosVendido = Infinity
+        //  produto menos vendido
+        for (var i = 0; i < produtosVendidos.length; i++) {
+            var item = produtosVendidos[i];
+            var contador = 0
+
+            for (var j = 0; j < produtosVendidos.length; j++) {
+                if (produtosVendidos[j] === item) {
+                    contador++
+                }
+            }
+
+            if (contador < qtdMenosVendido) {
+                qtdMenosVendido = contador
+                produtoMenosVendido = item
+            } else if (contador == qtdMenosVendido) {
+                produtoMenosVendido += `,${item}`
+            }
+        }
+
+
+
+        mensagemRelatorio +=
+            `<br><br><center><br><b>Seu estoque tem ${totalProdutos} produtos registrados</b><br></center><br>
+        <center>Produto com maior quantidade em estoque: ${ProdMaiorqtd} Quantidade(${qtdMaior})</center><br>
+        <center>Produto com menor quantidade em estoque: ${ProdMenorqtd} Quantidade(${qtdMenor})</center><br>
+        <center>Produto mais vendido: ${produtoMaisVendido} Quantidade(${qtdMaisVendido})</center><br>
+        <center>Produto menos vendido: ${produtoMenosVendido} Quantidade(${qtdMenosVendido})</center><br>
+        `
+        repostaRelatorio.innerHTML = mensagemRelatorio
+    }
+
+
+
+</script>
+
+</html>

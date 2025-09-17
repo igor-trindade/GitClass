@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Filmes Colorida</title>
+</head>
+<body>
+    <input type="text" id="filme_digitado">
+    <button onclick="adicionar()">Cadastrar</button>
+    <div id="frase"></div>
+
+    <script>
+        var filmes = [];
+
+        function adicionar(){
+            var filmeNovo = filme_digitado.value;
+            filmes.push(filmeNovo);
+
+            var fraseFinal = '';
+            for(var i = 0; i < filmes.length; i++){
+                var cor = (i % 2 == 0) ? 'blue' : 'red'
+                fraseFinal += `<span style="color:${cor}">${filmes[i]}</span><br>`
+            }
+
+            frase.innerHTML = fraseFinal
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Filmes</title>
+</head>
+<body>
+    <input type="text" id="filme_digitado">
+    <button onclick="adicionar()">Cadastrar</button>
+    <div id="frase"></div>
+
+    <script>
+        var filmes = [];
+
+        function adicionar(){
+            var filmeNovo = filme_digitado.value;
+            filmes.push(filmeNovo);
+
+            var fraseFinal = '';
+            for(var i = 0; i < filmes.length; i++){
+                fraseFinal += `${filmes[i]}<br>`;
+            }
+
+            frase.innerHTML = fraseFinal;
+        }
+    </script>
+</body>
+</html>

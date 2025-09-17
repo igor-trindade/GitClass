@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="ipt_clima">Informe o clima:</label>
+    <input type="number" id="ipt_clima" />
+   
+    <button onclick="resposta()">Verificar clima</button>
+    <div id="resultado"></div>
+
+
+
+    <Script>
+function resposta(){
+    var temp = ipt_clima.value
+    if(temp <= 10){
+resultado.innerHTML= `
+<h1>Parabéns! está perfeito!</h1>
+<br>
+<img src="https://i.pinimg.com/236x/e7/88/95/e78895573274f47064d9d3bf004b51ff.jpg" alt="">`
+    }else{resultado.innerHTML= `
+        <h1>Temos um problema! Precisamos melhorar isso ai.</h1>
+        <br>
+        <img src="https://i0.wp.com/blogdapolo.com.br/wp-content/uploads/2021/11/f6e646104811829.600cf49b496de-3.jpg?resize=620%2C413&ssl=1" alt="">`}
+}
+
+    </Script>
+</body>
+
+</html>

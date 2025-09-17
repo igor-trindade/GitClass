@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista atv 12</title>
+</head>
+
+<body>
+
+        <label for="ipt_nome">Digite seu nome:</label>
+        <input type="text" id="ipt_nome" placeholder="Seu nome">
+<br>
+<br>
+        <label for="ipt_numeroSorte">Digite seu número da sorte (entre 1 e 10):</label>
+        <input type="number" id="ipt_numeroSorte" placeholder="Número da sorte">
+  
+    <button onclick="calc()">Sortear</button>
+
+    <div id="resultado"></div>
+    <script>
+        var contador = 0;
+
+        function calc() {
+            var nome = ipt_nome.value
+            var numeroSorte = ipt_numeroSorte.value
+
+            if (numeroSorte < 1 || numeroSorte > 10) {
+                alert("Por favor, digite um número da sorte entre 1 e 10!")
+            }
+
+            contador++
+    
+            var inicio = 1
+            var fim = 10
+            numeroSorteado = Math.round((Math.random() * (fim - inicio) + inicio))
+         
+            resultado.innerHTML = `Número sorteado: ${numeroSorteado}`
+
+            if (numeroSorteado == numeroSorte) {
+                resultado.innerHTML += 
+                `<p>Parabéns, ${nome}!
+                    Você foi sorteado(a) 
+                    após ${contador} sorteios!</p>`;
+                contador = 0
+            }
+        }
+    </script>
+</body>
+
+</html>

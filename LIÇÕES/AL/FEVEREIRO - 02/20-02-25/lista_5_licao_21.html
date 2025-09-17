@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>CALCULO META</h1>
+
+    <label for="ipt_meta">Digite o valor da meta:</label>
+    <input type="number" id="ipt_meta" />
+    <label for="ipt_guardado">Digite o Valor guardado:</label>
+    <input type="number" id="ipt_guardado" />
+
+    <button onclick="calcular()">analisar economia:</button>
+    <br>
+    <div id="div_resposta"></div>
+
+    <script>
+        function calcular() {
+
+            var valorMeta = Number(ipt_meta.value)
+            var valorGuardado = Number(ipt_guardado.value)
+
+            if (valorGuardado >= valorMeta) {
+                div_resposta.innerHTML = `Parabéns, meta alcançada!`
+                   if (valorGuardado > valorMeta) {
+                    div_resposta.innerHTML = 
+                    div_resposta.innerHTML + `Meta ultrapassada em ${valorGuardado - valorMeta}`
+
+                } 
+            }else{div_resposta.innerHTML = `Força! Ainda em busca da meta! Falta ${valorGuardado - valorMeta}`}
+        }
+    </script>
+</body>
+
+</html>

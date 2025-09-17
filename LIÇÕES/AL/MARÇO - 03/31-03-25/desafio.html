@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="ipt_qtdMusicas "></label>
+    <input id="ipt_qtdMusicas" type="number">
+    
+    <button onclick="calc"> Começar Show</button>
+
+
+</body>
+<script>
+
+var qtdMusicas = ipt_qtdMusicas.value
+var ultimaMusica = ""
+
+for (var i = 1; i <= qtdMusicas;){
+
+  var musica = prompt("Qual nome da musica?")
+
+
+if (ultimaMusica == musica){
+    alert("Digite outra musica")
+}prompt("Você gosta dela sim ou não?")
+
+
+}
+
+</script>
+</html>

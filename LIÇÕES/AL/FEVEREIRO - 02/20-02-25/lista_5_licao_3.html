@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritimo é legal</title>
+</head>
+<body>
+ 
+  <h1>Vamos calcular sua Média?</h1>
+  <label for="ipt_nota1">1° nota</label>
+  <input type="number" id="ipt_nota1" />
+
+  <label for="ipt_nota2">2° nota</label>
+  <input type="number" id="ipt_nota2" />
+
+  <label for="ipt_nota3">3° nota</label>
+  <input type="number" id="ipt_nota3" />
+  <button onclick="verificar()">Analisar desempenho</button>
+
+ <div id="div_resposta"></div> 
+
+
+    <script>
+function verificar(){
+var total = Number(ipt_nota1.value) + Number(ipt_nota2.value) + Number(ipt_nota3.value)
+var media = total / Number(3)
+
+if(media >= 9.4){
+  div_resposta.innerHTML = `<h1>Parabéns, você é fora de série! </h1>`
+} else{div_resposta.innerHTML = `<h1>Falta pouco para Alcançar nosso objetivo</h1>`}
+}
+ </script>
+
+</body>
+</html>

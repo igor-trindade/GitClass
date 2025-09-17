@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <link rel="stylesheet" href="css\subtracao.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc of light</title>
+</head>
+<body bgcolor="#00ffff">
+    <center>
+        <h1>Guilherme Barros e Igor Tindade's Machine <br> <br>
+        <a href="Guilherme Barros e Igor Trindade's machine.html">Converção</a> |
+        <a href="soma.html">Soma</a></h1>
+
+        <label for="ipt_total">Digite valor no qual deseja subtrair:</label>
+        <input id="ipt_total" type="text" placeholder="Ex: 100">
+        <br>
+        <br>
+
+        <label for="ipt_base">Qual a base do valor informado?</label>
+        
+        <input name="total" type="radio" id="isert_deci">Decimal
+        <input name="total" type="radio" id="isert_bina">Binário
+        <input name="total" type="radio" id="isert_octal">Octal
+        <input name="total" type="radio" id="isert_exa">Hexadecimal
+
+        <h3>Quanto deseja subtrair em Decimal:</h3>
+        <input id="ipt_deci" type="number" placeholder="Ex: 42">
+        <button onclick="add_deci()">Adicionar ao calculo</button>
+        <br>
+
+        <h3>Quanto deseja subtrair em Binário:</h3>
+        <input id="ipt_bina" type="text" placeholder="Ex: 01011">
+        <button onclick="add_bina()">Adicionar ao calculo</button>
+        <br>
+
+        <h3>Quanto deseja subtrair em Octal:</h3>
+        <input id="ipt_octa" type="number" placeholder="Ex: 23">
+        <button onclick="add_octa()">Adicionar ao calculo</button>
+        <br>
+
+        <h3>Quanto deseja subtrair em Hexadecimal:</h3>
+        <input id="ipt_exa" type="text" placeholder="Ex: A1">
+        <button onclick="add_exa()">Adicionar ao calculo</button>
+        <br><br><br>
+
+        <button onclick="subtrair()">Subtrair</button>
+        <br><br><br>
+
+        <h2>Valores Adicionados Para subtração:</h2>
+        <button onclick="limpa()">Limpar Adicionados</button>
+        <div id="adicionados"></div>
+
+        <div id="resultado_deci"></div>
+        <div id="resultado_octa"></div>
+        <div id="resultado_exa"></div>
+        <div id="resultado_bina"></div>
+    </center>
+
+    <script>
+        var totalDeci = 0;
+        var totalOcta = 0;
+        var totalExa = 0;
+        var totalBina = 0;
+
+        function limpa() {
+            adicionados.innerHTML = "";
+            resultado_deci.innerHTML = "";
+            resultado_octa.innerHTML = "";
+            resultado_exa.innerHTML = "";
+            resultado_bina.innerHTML = "";
+            totalDeci = 0;
+            totalOcta = 0;
+            totalExa = 0;
+            totalBina = 0;
+        }
+
+        function add_deci() {
+            var deci = parseInt(ipt_deci.value, 10);
+            if (!isNaN(deci)) {
+                adicionados.innerHTML += `${deci} (Base 10)<br>`;
+                totalDeci += deci;
+            } else {
+                alert("Por favor, insira um número válido em decimal.");
+            }
+        }
+
+        function add_bina() {
+            var binaInput = ipt_bina.value;
+            var isBinary = /^[01]+$/.test(binaInput);
+            if (isBinary) {
+                var bina = parseInt(binaInput, 2);
+                adicionados.innerHTML += `${binaInput} (Base 2)<br>`;
+                totalBina += bina;
+            } else {
+                alert("Por favor, insira um número válido em binário.");
+            }
+        }
+
+        function add_octa() {
+            var octa = parseInt(ipt_octa.value, 8);
+            if (!isNaN(octa)) {
+                adicionados.innerHTML += `${ipt_octa.value} (Base 8)<br>`;
+                totalOcta += octa;
+            } else {
+                alert("Por favor, insira um número válido em octal.");
+            }
+        }
+
+        function add_exa() {
+            var exa = parseInt(ipt_exa.value, 16);
+            if (!isNaN(exa)) {
+                adicionados.innerHTML += `${ipt_exa.value} (Base 16)<br>`;
+                totalExa += exa;
+            } else {
+                alert("Por favor, insira um número válido em hexadecimal.");
+            }
+        }
+
+        function subtrair() {
+            var totalInsert = ipt_total.value;
+            var base = 0;
+
+            if (isert_deci.checked) {
+                var validandoDeci = parseInt(totalInsert, 10);
+                if (!isNaN(validandoDeci)) {
+                    base = validandoDeci;
+                } else {
+                    alert("Por favor, insira um número válido em decimal.");
+                }
+            } else if (isert_bina.checked) {
+                var binaInput = totalInsert;
+                var isBinary = /^[01]+$/.test(binaInput);
+                if (isBinary) {
+                    base = parseInt(binaInput, 2);
+                } else {
+                    alert("Por favor, insira um número válido em binário.");
+                }
+            } else if (isert_octal.checked) {
+                var validandoOcta = parseInt(totalInsert, 8);
+                if (!isNaN(validandoOcta)) {
+                    base = validandoOcta;
+                } else {
+                    alert("Por favor, insira um número válido em octal.");
+                }
+            } else if (isert_exa.checked) {
+                var validandoExa = parseInt(totalInsert, 16);
+                if (!isNaN(validandoExa)) {
+                    base = validandoExa;
+                } else {
+                    alert("Por favor, insira um número válido em hexadecimal.");
+                }
+            } else {
+                alert("Por favor, selecione uma base válida.");
+            }
+
+            var total = base - (totalDeci + totalOcta + totalExa + totalBina);
+            resultado_deci.innerHTML = `<h3>Soma Total em Decimal: ${total}</h3>`;
+            resultado_octa.innerHTML = `<h3>Soma Total em Octal: ${total.toString(8)}</h3>`;
+            resultado_exa.innerHTML = `<h3>Soma Total em Hexadecimal: ${total.toString(16)}</h3>`;
+            resultado_bina.innerHTML = `<h3>Soma Total em Binário: ${total.toString(2)}</h3>`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+package school.sptech;
+
+import java.util.Scanner;
+
+public class Metodos {
+    public static void main(String[] args) {
+
+        exibeAsteriscos("Hello world");
+        System.out.println(media(10.0, 20.0));
+        Double media = media(10.0, 5.0);
+        System.out.println("Média: " + media);
+        System.out.println("Usando sobrecarga de metodo \n mesmo nome de metodo mas recebe valores diferentes\n resultado:" + media(5.0, 6.0, 7.0));
+
+
+        //fazendo sem static
+        // Criando objeto da classe Metodos
+        Metodos m = new Metodos();
+        System.out.println("Sem static:" + m.media2(7.0,8.0));
+
+    }
+
+    // assinatura: (public static void exibeAsteriscos)
+
+    public static void exibeAsteriscos() {
+        System.out.println("****************************************");
+    }
+
+    public static void exibeQuadros() {
+        System.out.println("***                                  ***");
+
+    }
+
+    public static void exibeAsteriscos(String msg) {
+        exibeAsteriscos();
+        System.out.println("***            " + msg + "           ***");
+        exibeAsteriscos();
+    }
+
+
+    public static Double media(Double n1, Double n2) {
+        return (n1 + n2) / 2;
+    }
+
+    public static Double media(Double n1, Double n2, Double n3) {
+        return (n1 + n2 + n3) / 3;
+    }
+
+    // fazendo sem static
+    public Double media2(Double n1, Double n2) {
+        return (n1 + n2) / 2;
+    }
+
+st
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>algoritimo é legal</title>
+</head>
+<body>
+    <h1>Calculadora de cansaço do aluno SPTech</h1>
+
+    <label for="ipt_empresa">Informe nome da empresa:</label>
+    <input type="text" id="ipt_empresa" placeholder="Empresa que esplode">
+<br>
+    <label for="ipt_valor">Valor da bolsa da empresa: </label>
+    <input type="number" id="ipt_valor" placeholder="R$ 850,00">
+<br>
+    <label for="ipt_valorVr">Valor do VR da empresa: </label>
+    <input type="number" id="ipt_valorVR" placeholder="R$ 35,00">
+<br>
+<label for="ipt_km">Descolamento da empresa para a SPTech:</label>
+<input type="number" id="ipt_km" placeholder="25min">
+<br> 
+<button onclick="calc()">É preferida?</button>
+
+
+
+<script>
+
+    function calc(){
+var empresa = ipt_empresa.value
+var bolsa = ipt_valor.value
+var vr = ipt_valorVR.value
+var km = ipt_km.value
+
+
+var PreferenciaBolsa  = bolsa >= 1800 ? true : false
+var PreferenciaVR  = vr >= 20 ? true : false
+var PreferenciaKM  = km <= 30 ? true : false
+
+
+
+if(PreferenciaBolsa || PreferenciaVR || PreferenciaKM){
+    alert(`A empresa ${empresa} é uma de suas preferências`)
+}else{`A empresa ${empresa} está fora da sua lista"`}
+}
+
+
+
+
+</script>
+</body>
+</html>
+

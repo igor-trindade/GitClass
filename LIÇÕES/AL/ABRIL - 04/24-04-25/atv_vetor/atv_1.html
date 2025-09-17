@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="ipt_frutaUser"></label>
+    <input type="text" id="ipt_frutaUser">
+    <button onclick="validar()">Pesquisar</button>
+
+    <div id="resposta"></div>
+</body>
+
+<script>
+var frutas = ['Limão','Laranja','Abacate','Maça','Banana', 'Manga', 'Caju']
+var mensagem = ''
+
+function validar(){
+var FrutaEscolhida = ipt_frutaUser.value
+
+
+for (var i = 0; i < frutas.length; i++ ){
+
+    if(FrutaEscolhida == frutas[i]){
+  mensagem = `Existe a fruta ${FrutaEscolhida} na lista.`
+  break;
+    }else{  mensagem = `Não existe a fruta ${FrutaEscolhida} na lista.`}
+  
+}
+resposta.innerHTML = mensagem
+ }
+
+
+
+
+
+</script>
+
+
+
+</html>

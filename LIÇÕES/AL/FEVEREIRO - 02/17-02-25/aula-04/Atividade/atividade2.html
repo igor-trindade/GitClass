@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritimo é legal</title>
+</head>
+<body>
+    
+    <label for="add_value">Valor da Operação</label>
+    <input type="number" name="Valor da Operação" id="add_value" placeholder="Ex:R$ 150,00">
+    <button onclick="depositar()">Depositar</button>
+    <button onclick="retirar()">Retirar</button>
+    <div id="div_saldo"></div>
+
+    <script>
+var saldo = 0
+div_saldo.innerHTML = `<h1>Saldo atual: R$${saldo}</h1>`
+function depositar(){
+
+    saldo = saldo + Number(add_value.value)
+   div_saldo.innerHTML = 
+    `<h1> Deposito de R$${add_value.value} efetuado! <br>Saldo atual: R$${saldo}</h1>`
+}
+
+function retirar(){
+
+saldo = saldo - Number(add_value.value)
+div_saldo.innerHTML = 
+    `<h1> Retirada de R$${add_value.value} efetuado! <br>Saldo atual: R$${saldo}</h1>`
+
+}
+    </script>
+</body>
+</html>

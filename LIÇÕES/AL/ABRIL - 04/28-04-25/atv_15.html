@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Loja Eletrônica</title>
+</head>
+<body>
+    <label for="nome_produto">Nome do produto:</label>
+    <input type="text" id="nome_produto">
+    <label for="preco_compra">Preço de compra:</label>
+    <input type="number" id="preco_compra" step="0.01">
+    <button onclick="cadastrarProduto()">Cadastrar</button>
+    <button onclick="mostrarRelatorio()">Relatório de estoque</button>
+
+    <div id="relatorio"></div>
+
+    <script>
+        var nomesProdutos = []
+        var precosCompra = []
+
+        function cadastrarProduto() {
+            var nome = nome_produto.value.value
+            var preco = parseFloat(preco_compra.value)
+            if (nome === "" || isNaN(preco)) return
+            nomesProdutos.push(nome)
+            precosCompra.push(preco)
+        }
+
+        function mostrarRelatorio() {
+            var mensagem = `Total de produto: ${nomesProdutos.length}<br><br>`
+            for (var i = 0; i < nomesProdutos.length; i++) {
+                var venda = (precosCompra[i] * 1.25).toFixed(2)
+                mensagem += `Produto ${i + 1}: ${nomesProdutos[i]}<br>
+                Preço de compra: R$${precosCompra[i].toFixed(2)}. Vender por R$${venda}<br><br>`
+            }
+            relatorio.innerHTML = mensagem
+        }
+    </script>
+</body>
+</html>

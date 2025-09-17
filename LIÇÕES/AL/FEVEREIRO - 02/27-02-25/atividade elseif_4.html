@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <label for="ipt_kg"> Peso Infantil está Dentro da Faixa Saudável?</label>
+    <input type="number" id="ipt_kg">
+    <button onclick="acao()">Avaliar</button>
+    <div id="resultado"></div>
+
+    <script>
+         function acao(){
+var kg = ipt_kg.value
+if(kg <= 13.5){
+    resultado.innerHTML = `O Peso de ${kg} é Abaixo do peso.`
+}else if(kg == 18.3){
+   
+   resultado.innerHTML = `O Peso de ${kg} é Peso perfeito`
+}else if(kg <= 21.2){
+    
+    resultado.innerHTML = `O Peso de ${kg} é Peso na média`
+}else if(kg > 21.2){
+resultado.innerHTML = `O Peso de ${kg} é Acima do peso`
+
+}
+}
+    </script>
+
+</body>
+
+</html>

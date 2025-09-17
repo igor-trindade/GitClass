@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo é Legal</title>
+</head>
+<body>
+    <button onclick="contar()">Boa Tarde</button>
+    <div id="resultado"></div>
+</body>
+<script>
+    var i = 0;
+
+    function contar() {   
+        while (i <= 7) {
+            resultado.innerHTML += 
+            `${i}. Boa Tarde<br>`
+            i++;
+        }
+    }
+</script>
+</html>

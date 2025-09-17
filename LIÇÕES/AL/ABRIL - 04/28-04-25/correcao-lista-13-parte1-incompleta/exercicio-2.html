@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 02</title>
+</head>
+
+<body>
+    <input type="text" id="ipt_destino">
+    <button onclick="adicionar()">Adicionar</button>
+    
+    <br>
+
+    <button onclick="primeira()">Primeira viagem</button>
+    <button onclick="terceira()">Terceira viagem</button>
+    <button onclick="ultima()">Última viagem</button>
+
+    <div id="div_resultado"></div>
+</body>
+<script>
+
+    var destinos = []
+    
+
+    function adicionar(){
+    var destinoDigitado = ipt_destino.value
+    destinos.push(destinoDigitado)
+
+    div_resultado.innerHTML = destinos
+    }
+  function primeira(){
+    var qtdDestinos = destinos.length
+
+    if(qtdDestinos <= 0){
+
+    div_resultado.innerHTML =`Ainda Não Viajou`
+    } else{div_resultado.innerHTML =`Primeiro local: ${destinos[0]}`}
+  }
+
+  function terceira(){
+    var qtdDestinos = destinos.length
+
+
+
+    if(qtdDestinos < 3){
+    console.log("Luga ki eu fui:",destinos)
+    div_resultado.innerHTML =`Ainda Não fez a terceira viagem`
+    } else{div_resultado.innerHTML =`Primeiro local: ${destinos[2]}`}
+  }
+
+  function ultima(){
+    var qtdDestinos = destinos.length
+if(qtdDestinos < 3){
+if(qtdDestinos <= 0){
+
+div_resultado.innerHTML =`Ainda Não Viajou`
+} else{div_resultado.innerHTML =`Primeiro local: ${destinos[qtdDestinos-1]}`}}}
+
+
+
+</script>
+
+</html>

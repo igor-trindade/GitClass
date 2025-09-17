@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isso é coisa de Louco</title>
+</head>
+
+<body>
+    <label for="ipt_marinheiro">Digite a Quantidade de Marinheiro</label>
+    <input type="text" id="ipt_marinheiros">
+    <br>
+    <label for="ipt_carnes">Digite a Quantidade de Carnes</label>
+    <input type="text" id="ipt_carnes">
+    <br>
+    <label for="ipt_batalhas">Digite a Quantidade de Batalhas</label>
+    <input type="text" id="ipt_batalhas">
+    <div id="resultado"></div>
+    <button onclick="calc()">Batalhar</button>
+</body>
+<script>
+    function calc() {
+        var qtdMarinheiros = Number(ipt_marinheiros.value)
+        var qtdCarnes = Number(ipt_carnes.value)
+        var qtdBatalhas = Number(ipt_batalhas.value)
+        var energia = 100
+
+        fraseFinal = ""
+
+        for (var i = 1; i <= qtdBatalhas; i++) {
+            fraseFinal += `<br>---- Iniciando a  ${i}ª batalha ---- <br>`
+            // ANTES DE TIRAR 10, VALIDE A ENERGIA
+            if (energia < 10 && qtdCarnes > 0) {
+                energia = 100
+                qtdCarnes--
+                fraseFinal += `<br>Recuperando energia no inicio da batalha <br>`
+            }
+            if (i > 1) {
+                fraseFinal += `<br>Você passou da 1° batalha  e perdeu 10 de energia<br>`
+                energia -= 10
+            }
+
+            for (var j = 1; j <= qtdMarinheiros; j++) {
+                fraseFinal += `<br>Tentando matar o ${j}º marinheiro<br>
+        Energia: ${energia} - Carnes: ${qtdCarnes} <br>`
+
+                if (energia >= 5) {
+                    fraseFinal += `Matando o ${j}º Marinheiro<br>`
+                    energia -= 5
+                } else {
+                    if (qtdCarnes > 0) {
+                        energia = 100
+                        qtdCarnes--
+                        fraseFinal += `<br>Você ficou sem energia mas comeu uma carne e recuperou<br>`
+
+                    } else {
+                         fraseFinal += `<br>Sem energias e Carnes, se morreu <br>`
+                         break;}
+
+                }
+
+            }
+        }
+        resultado.innerHTML = fraseFinal
+    }
+</script>
+
+</html>

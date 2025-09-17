@@ -1,0 +1,26 @@
+nome : Igor Cardoso  (Multivalorado) 2 
+
+_________________________________________________
+
+(Monovalorado)
+
+nome : Igor
+sobrenome: Cardoso
+_________________________________________________
+
+(Multivalorado)
+emailCorp             igor.trindade@sptech.school
+emailPessoal        cardosoigor113@gmail.com
+
+__________________________________________________
+
+(composto)
+
+
+rua caminho existente 171 jd Santana 
+
+contem vários elementos juntos. 
+
+
+
+select especial com caracteres finais 

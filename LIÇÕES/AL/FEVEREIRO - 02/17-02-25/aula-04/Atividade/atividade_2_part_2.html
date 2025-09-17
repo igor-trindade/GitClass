@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritimo é legal</title>
+</head>
+
+<body>
+    <label for="ipt_sono">Votos ao Candidato A:</label>
+    <input type="number" name="Votos:" id="ipt_cdA" placeholder="Ex: 13">
+<br>
+    <label for="ipt_sono">Votos ao Candidato B:</label>
+    <input type="number" name="Votos:" id="ipt_cdB" placeholder="Ex: 26">
+<br>
+    <label for="ipt_sono">Votos em Brancos:  </label>
+    <input type="number" name="Votos:" id="ipt_brancos" placeholder="Ex: 10">
+<br>
+    <label for="ipt_sono">Votos como nulos   :</label>
+    <input type="number" name="Votos:" id="ipt_null" placeholder="Ex: 20">
+
+
+    <button onclick="eleitor()">Resultado da Eleição</button>
+    <br>
+    <br>
+    
+    <div id="div_elegendo"></div>
+
+    <script>
+        function eleitor() {
+var ipt_1 = Number(ipt_cdA.value)
+var ipt_2 = Number(ipt_cdB.value)
+var ipt_3 = Number(ipt_brancos.value)
+var ipt_4 = Number(ipt_null.value)
+var total = (ipt_1 + ipt_2 + ipt_3 + ipt_4)
+div_elegendo.innerHTML =
+    
+ `<h1> Total de votos: ${ipt_1 + ipt_2 + ipt_3 + ipt_4}  </h1>
+     <br>
+     <h3>
+     Candidato A: ${(ipt_1/total)*100}% (${ipt_1 })
+     <br>
+     Candidato B: ${(ipt_2/total)*100}% (${ipt_2})  
+     <br>
+     Inválidos: ${((ipt_3+ipt_4)/total)*100}% (${ipt_3 + ipt_4})
+     </h3>
+     `}
+
+
+
+    </script>
+
+</body>
+
+</html>

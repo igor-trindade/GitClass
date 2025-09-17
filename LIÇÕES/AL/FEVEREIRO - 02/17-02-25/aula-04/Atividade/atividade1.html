@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritimo é legal</title>
+</head>
+<body>
+    <button onclick="contar()">Receber 100</button>
+    <button onclick="pagar()">Pagar 50</button>
+    <div id="div_saldo"></div>
+ 
+    <script>
+        var saldo = 0
+        div_saldo.innerHTML = `<h1>Saldo atual: R$${saldo}</h1>`
+       function  contar(){
+      saldo = saldo + 100;
+      div_saldo.innerHTML = `<h1> Transferência de R$100 recebida! <br>Saldo atual: R$${saldo}</h1>`
+       }
+
+       function  pagar(){
+      saldo = saldo - 50;
+
+      div_saldo.innerHTML = 
+      `   <h1>Pagamento de R$50 efetuado! <br>Saldo atual: R$${saldo}</h1>`
+       }
+
+   </script>
+
+</body>
+</html>

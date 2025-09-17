@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritimo é legal</title>
+</head>
+<body>
+    <h1> Tempo Gasto com Séries    </h1>
+    <label for="ipt_serie">Última série (SITCOM) Assitida:</label>
+    <input type="text" id="ipt_serie" />
+<br>
+    <label for="ipt_ep">Total episódios assistidos</label>
+    <input type="number" id="ipt_ep" />
+<button onclick="resultado()">Verificar nível</button>
+<div id="div_resposta"></div>
+
+<script>
+function resultado(){
+
+    var assistidas = Number(ipt_ep.value) * 22
+
+div_resposta.innerHTML = `<h1>Vejo que você gosta da série ${ipt_serie.value}</h1>`
+ if(assistidas >=1800){
+    div_resposta.innerHTML =  div_resposta.innerHTML + `<h1>Uau, você realmente gosta dessa série!</h1>`}
+}
+
+</script>
+</body>
+</html>

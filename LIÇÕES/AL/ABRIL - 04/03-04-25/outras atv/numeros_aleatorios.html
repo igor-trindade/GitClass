@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ 
+</body>
+<script>
+    // gera um numero entre 0 e 1
+    var numeroAleatorio = Math.random()
+
+    console.log("Aleatorio:", numeroAleatorio.toFixed()) 
+
+    var AleatorioAte10 = numeroAleatorio * 10
+    console.log("Aleatorio até 10:", AleatorioAte10.toFixed())
+    
+    
+//desafio:
+
+// como gerar um aleatorio com valor min e max?
+
+var aleatorioEntre =  Math.random() * 10
+console.log("Aleatorio entre 5 e 10:", aleatorioEntre.toFixed())
+
+
+var aleatorioCerto = 0;
+
+while (aleatorioCerto <= 5 || aleatorioCerto >= 10) {
+  var aleatorio1 = Math.random();
+  var aleatorio2 = Math.random();
+  aleatorioCerto = (aleatorio2 * aleatorio1) * 10;
+}
+console.log("Número aleatório entre 5 e 10:", aleatorioCerto.toFixed());
+
+
+
+
+
+var aleatorioCerto2 = 0
+
+while (aleatorioCerto2 < 5 || aleatorioCerto2 > 11) {
+  aleatorioCerto2 = (Math.random() * Math.random()) * 10
+}
+
+console.log("Número aleatório entre 5 e 10  versão 2:", aleatorioCerto2.toFixed());
+
+
+
+var aleatorioCerto3 = 0
+
+while (aleatorioCerto3 < 5 || aleatorioCerto3 > 11) {
+  aleatorioCerto3 = (Math.random() + Math.random()) * 5
+}
+
+console.log("Número aleatório entre 5 e 10  versão 3:", aleatorioCerto3.toFixed());
+
+
+// se não conseguir pensar em como fazer 
+// pesquise na comunidade e não com IA generativa.
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

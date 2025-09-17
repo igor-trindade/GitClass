@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<button onclick="contar()">Contar</button>
+<button onclick="somar10()">Contar 10</button>
+ <h3 id="h3_value"></h3>   
+
+<script>
+    var valor = 0;
+function contar(){
+valor = valor + 1;
+h3_value.innerHTML = `Valor Atual: ${valor}`;
+}
+
+function somar10(){
+   valor = valor + 10;
+   h3_value.innerHTML = `Valor Atual: ${valor}`;
+}
+</script>
+</body>
+</html>

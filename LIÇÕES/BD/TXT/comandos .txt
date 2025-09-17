@@ -1,0 +1,150 @@
+criando comentário da coluna / documentação.
+
+
+limit 100 (limita qtd de valores que vem )
+
+
+
+select table_name "nome das tabela" 
+from information_schema.columns
+where table_schema = "database"
+order by table_name, ordinal_position;
+
+
+
+
+
+
+Variaveis
+
+Numericos:
+BigINT, INT, TinyINT, Decimal, Money, Float.
+
+Data:
+DateTime, SmallDateTime.
+
+Alphanumerico:
+Char, VarChar, nChar, nText, nVarChar, Text.
+
+Outros:
+Binary, varBinary, Image, UniqueIdentifier.
+
+Tratamentos:
+Fixo, Variável.
+NULL: valores nulos.
+
+DCL = usada para controlar o acesso aos dados em um banco de dados. GRANT e REVOKE
+
+Comandos DDL = definir e redefinir atributos de um objeto
+Separado em sistema e usuario.
+Tabelas temporarias(Local e Global): usadas para minimizar processos dps do uso são descartadas.
+Tabelas constantes: pode determinar um padrão e checar as tabelas.
+Chave primaria e estrangeira.
+SQL Views: usado para ver os dados com permição sem altera-los na base, é possivel descaracterizar os dados para o visualizador.
+Indices: facilitam a busca, Clusterizados: ele organiza a lista de acordo com uma condição, Não Clusterizados: Ele lista pelo código, Fill Factor: quantidade de espaço sobrando para a inserção de dados, Page Splic: cria outra pagina levando metade dos dados da página
+
+
+Comandos Basicos
+
+' ': cria um texto ou constante, serve pra espaço quando concatena as colunas.
+OR: ou
+END: e
+--: comentario
+*: ler tudo
+Especificando FROM 'Base'.'dbo'.'Objeto'(pode precisar colocar o servidor na frente da Base)
+----------------------------------------------------------------------------------------------------------------------------------
+Comandos DDL
+
+GO: executa o q estiver antes primeiro
+CREATE TABLE 'nome da tabela'('atributo' 'tipo' 'constante', ...)
+DROP TABLE 'nome da tabela'
+ALTER TABLE pode ter ADD, DROP, MODIFY e RENAME
+
+***Ordem: Create table, Atributos, PKs, CHECKs, DEFAULTs, FKs
+
+ALTER TABLE 'nome da tabela' ADD CONSTRAINT 'nome da PK' PRIMARY KEY ('nome do atributo')
+ALTER TABLE 'nome da tabela FK' ADD CONSTRAINT 'nome da FK' FOREIGN KEY ('nome do atributo FK') REFERENCES 'nome da tabela PK'('nome do atributo PK')
+ALTER TABLE 'nome da tabela' ADD CONSTRAINT 'nome da checagem' CHECK 'condição/where'
+ALTER TABLE 'nome da tabela' ADD CONSTRAINT 'nome do padrão' DEFAULT 'valor chumbado' FOR 'atributo'
+
+CREATE INDEX 'nome do indice' ON 'tabela'
+
+----------------------------------------------------------------------------------------------------------------------------------
+Comandos DML = definir e redefinir atributos de um objeto.
+
+SET 'função' = faz configurações na conexão
+
+USE 'nome da base de dados'
+
+DELETE FROM 'tabela' WHERE<condição(pode ter SELECT)>: deleta na coluna
+TRUNCATETABLE: usado em tabela temporaria(deleta sem deixar log)
+
+INSERT INTO 'tabela' (lista de colunas) Values (lista de valores): da pra trocar os values por um SELECT)
+
+UPDATE 'tabela' SET '1º coluna'='valor', '2º coluna'='valor', ... WHERE <condição(pode SELECT)>: altera as linhas da tabela
+
+SELECT 'nome de colunas' + FROM 'tabela': procura na coluna
+
+INTO #TEMP: todas as colunas precisam de nome. # = conexão local, ## = conexão global
+
+/TOP: ex: TOP 3 pega as tres primeiras linhas
+
+/SUM(atributo): soma de tudo
+
+/DISTINCT: n exibe valores iguais
+
+/-CASE END: começa um caso e o finaliza
+
+//Case: começa um caso -WHEN 'nome da coluna' = 'conteudo da linha' THEN 'condição'
+//-ELSE: termina o WHEN -END: finaliza o caso
+
+WHERE 'nome da coluna' = 'conteudo da linha': procura na linha (da pra por mais um SELECT(sustenido) aqui)
+
+/-LIKE 'caractere antes%caractere dps': pode ser só antes ou só dps do % (CHARINDEX é melhor)
+
+/-IN ('lista', 'de', 'itens', 'do', 'WHERE'): especifica o WHERE
+
+ORDER BY nome da coluna; : ordem q as linhas vem (padrão alfabético crescente), DESC para decrescente
+
+GROUP BY nome da coluna; : mostra a coluna especificada
+
+INNER JOIN 'tabela' ON 'nome da coluna' = 'nome da coluna': adiciona outro FROM/faz as ligações entre tabelas
+Declaração de apelidos: apelido da tabela vem dps, das colunas é o mesmo da respectiva tabela só q antes com . no final
+----------------------------------------------------------------------------------------------------------------------------------
+Funções
+
+CONCAT('atributo1' + ' ' + 'atributo2'): concatenação
+
+UPPER(nome da tabela): serve pra quando a pessoa digitar sair maiusculo e o dado da tabela tbm fica assim no view
+
+LOWER(nome da tabela): serve pra quando a pessoa digitar sair minusculo e o dado da tabela tbm fica assim no view
+
+STUFF(Nome coluna, Primeira posição, Até essa posição(da pra usar len), 'texto de substituição')
+
+REPLICATE('o que será replicado', quantas casas ele vai replicar)
+
+REPLACE('nome coluna', caractere, novo caractere)
+
+[nome do cabeçalho]: muda o nome das colunas na view
+
+SUBSTRING(nome da coluna,Primeira posição, Até essa posição) = 'condição(pode ser função)'
+
+CHARINDEX('condição', nome da tabela) > valor de retorno"0" = Substitui LIKE
+
+LEN(nome da coluna) > condição"5" AS [Tamanho] (pode usar a parte antes do maior para indicar até o fim da coluna em um SUBSTRING)
+
+CONVERT(novo tipo de variavel(tamanho), coluna, formatação)
+
+ISNULL(atributo, 'texto de substituição')
+
+IFNULL(Atributo, 'texto de substituição')
+
+COUNT(*): conta todos os valores presentes
+----------------------------------------------------------------------------------------------------------------------------------
+condições
+
+HAVING 'função de condição': tendo tal coisa
+
+TYPE: ordena alfabéticamente
+
+BEYWEEN n1 AND n2: entre n1 e n2

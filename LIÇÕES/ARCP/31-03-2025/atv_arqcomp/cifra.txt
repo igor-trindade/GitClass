@@ -1,0 +1,69 @@
+palavra:
+
+Kratos 
+
+ASCII
+
+0100 1011 | 0111 0010 | 0110 0001 | 0111 0100 | 0110 1111 | 0111 0011 |
+
+
+
+
+quebre a sequencia no meio e inverta suas posições, ultimo vira primeiro :
+
+0111 0100 | 0110 1111 | 0111 0011 | 2° 
+0100 1011 | 0111 0010 | 0110 0001 |  1°
+
+
+
+inverter a polaridade  -> 
+
+1000 1011 | 1001 0000 | 1000 1100 | 1011 0100 | 1000 1101 | 1001 1110 |
+
+
+
+
+Coloque os bytes um em baixo do outro, em seguida  separe em pares inverta sua sequencia entre si: 
+
+1001 0000 | 2
+1000 1011 | 1
+
+1011 0100 | 2
+1000 1100 | 1
+
+1001 1110 | 2
+1000 1101 | 1 
+
+
+
+Concatene na nova sequencia e transforme em exa. 
+
+         2                   1                    2                    1                    2                    1 
+
+1001 0000 | 1000 1011 | 1011 0100 | 1000 1100 | 1001 1110 | 1000 1101
+
+
+
+Transforme em exa decimal: 
+
+1001 0000 | 90
+1000 1011 | 8b
+1011 0100 | b4
+1000 1100 | 8c
+1001 1110 | 9e
+1000 1101 | 8d
+
+criptografado: 90  8b b4 8c 9e 8d
+
+
+
+
+
+
+
+
+
+
+
+
+

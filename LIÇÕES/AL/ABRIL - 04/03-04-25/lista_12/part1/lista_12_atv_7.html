@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista atv 12</title>
+</head>
+
+<body>
+    <button onclick="calc()">Quero um número cabalístico!</button>
+    <div id="resposta"></div>
+
+    <script>
+        function calc() {
+           
+            var inicio = 1
+            var fim = 15.1
+            var numeroSorteado = Math.floor(Math.random() * (fim - inicio )) + inicio
+
+
+         var cabalisticos1 = 3
+         var cabalisticos2 = 4
+         var cabalisticos3 = 7
+         var cabalisticos4 = 10
+         var cabalisticos5 = 12
+
+            var mensagem = `O número sorteado foi: ${numeroSorteado}.<br>`
+
+            if (numeroSorteado == cabalisticos1 || 
+                numeroSorteado == cabalisticos2 ||
+                numeroSorteado == cabalisticos3 || 
+                numeroSorteado == cabalisticos4 ||
+                numeroSorteado == cabalisticos5) 
+                
+                {mensagem += "Eu S2 números cabalísticos!"
+            } else {mensagem += "Ah, me dá um número bom na próxima!"}
+            resposta.innerHTML = mensagem
+        }
+    </script>
+</body>
+
+</html>

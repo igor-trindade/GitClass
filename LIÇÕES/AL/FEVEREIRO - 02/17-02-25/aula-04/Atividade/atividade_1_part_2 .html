@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritimo é legal</title>
+</head>
+
+<body>
+    <label for="ipt_sono">Horas de sono:</label>
+    <input type="number" name="Horas de sono:" id="ipt_sono" placeholder="Ex: 8">
+    <button onclick="sono()">Calcular sono</button>
+    <div id="div_saldo"></div>
+
+    <script>
+        function sono() {
+            div_saldo.innerHTML =
+                `<h1> Ao dormir ${ipt_sono.value} horas, você dormiu:</h1>
+    <h3>
+    <br> ${ipt_sono.value * 0.05} horas na fase 1 
+    <br> ${ipt_sono.value * 0.45} horas na fase 2 
+    <br> ${ipt_sono.value * 0.30} horas na fase 3
+    <br> ${ipt_sono.value * 0.20} horas na fase REM 
+    </h3>`
+   }
+
+
+
+    </script>
+
+</body>
+
+</html>

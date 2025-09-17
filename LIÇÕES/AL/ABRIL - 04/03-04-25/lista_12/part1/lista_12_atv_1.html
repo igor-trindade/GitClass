@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista atv 12</title>
+</head>
+<body>
+    <button onclick="calc()">Sortear</button>
+    <div id="resposta"></div>
+</body>
+
+
+<script>
+function calc(){
+    resposta.innerHTML = ""
+    var numeroAleatorio = Math.random()
+    resposta.innerHTML += `Numero sorteado${numeroAleatorio}<br>`
+
+    if(numeroAleatorio < 0.5){
+    resposta.innerHTML += `Eu arredondaria para 0 <br>`
+
+    }else { resposta.innerHTML += `Eu arredondaria para 1<br>`}
+}
+
+
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="ipt_comida"></label>
+    <input type="text" name="" id="ipt_comida">
+
+    <button onclick="cadastrar()">Cadastrar Estoque de Comidas</button>
+    <button onclick="verificar()">Verificar Quantidade</button>
+    <br>
+    <label for="ipt_pesquisar"></label>
+    <input type="text" name="" id="ipt_pesquisar">
+    <button onclick="pesquisar()">Pesquisar</button>
+    <button onclick="exibir()">Exibir Estoque</button>
+    <br>
+    <br><br>
+    <label for="ipt_nome">Antigo Nome</label>
+    <input type="text" name="" id="ipt_nome">
+    <br>
+    <label for="ipt_rename">Novo Nome</label>
+    <input type="text" name="" id="ipt_rename">
+    <button onclick="rename()">Alterar Nome</button>
+    <br><br>
+    <label for="ipt_delete">Deletar Comida</label>
+    <input type="text" name="" id="ipt_delete">
+    <button onclick="deletar()">Deletar</button>
+    <div id="resposta"></div>
+</body>
+
+
+<script>
+    var comidas = []
+
+    function cadastrar() {
+        var comidaIpt = ipt_comida.value
+
+        if (comidaIpt == '') {
+            alert('Informe uma Comida pelo menos')
+            return;
+        }
+
+        comidas.push(comidaIpt)
+        alert("Comida cadastrada com sucesso")
+    }
+
+    function verificar() {
+        var qtdComidaEstoque = comidas.length
+        var comidaPesquisa = ipt_pesquisar.value
+        var contador = false
+
+        if (qtdComidaEstoque < 3) {
+            alert("Desse jeito, o Luffy devora até o navio")
+        } else if (qtdComidaEstoque >= 3 && qtdComidaEstoque <= 7) {
+            alert("O comilão do Luffy não vai deixar sobrar nenhuma comida")
+        } else if (qtdComidaEstoque >= 8 && qtdComidaEstoque <= 10) {
+            alert("Assim, talvez sobre um pouco para a tripulação")
+        } else if (qtdComidaEstoque > 10) {
+            alert("Desse jeito vai ter comida para todo mundo e ainda consigo guardar um pouco para a senhorita Nami!")
+        }
+    }
+
+    function pesquisar() {
+
+        var qtdComidaEstoque = comidas.length
+        var comidaPesquisa = ipt_pesquisar.value
+        var contador = false
+
+        if (comidaPesquisa == '') {
+            alert('Informe uma Comida pelo menos')
+            return;
+        }
+
+        for (var i = 0; i < comidas.length; i++) {
+            if (comidas[i] == comidaPesquisa) {
+                contador++
+            }
+        }
+        if (!contador) {
+            alert(`Alguém vai ter que comprar ${comidaPesquisa}, tá fazendo falta...`)
+
+        } else { alert(`Temos a comida ${comidaPesquisa} e há ${contador} unidade(s) dela`) }
+    }
+
+    function exibir() {
+        var mensagem = ''
+        resposta.innerHTML = ''
+        var qtdComidaEstoque = comidas.length
+
+        var produtosRelatorio = [];
+        var mensagem = "";
+
+        for (var i = 0; i < qtdComidaEstoque; i++) {
+            var contador = 0;
+            var adicionarRelatorio = true;
+
+            for (var j = 0; j < qtdComidaEstoque; j++) {
+                if (comidas[j] === comidas[i]) {
+                    contador++;
+                }
+            }
+
+
+            for (var k = 0; k < produtosRelatorio.length; k++) {
+                if (produtosRelatorio[k] === comidas[i]) {
+                    adicionarRelatorio = false;
+                }
+            }
+
+            if (adicionarRelatorio) {
+                mensagem += `<br> - ${comidas[i]} (${contador} Unidades)`;
+                produtosRelatorio.push(comidas[i]);
+            }
+        }
+
+        resposta.innerHTML = mensagem
+
+    }
+
+    function rename() {
+        var renomear = ipt_rename.value
+        var oldName = ipt_nome.value
+        var alterou = false
+
+        for (var i = 0; i < comidas.length; i++) {
+            if (comidas[i] == oldName) {
+                comidas[i] = renomear
+                alterou = true
+            }
+        }
+        if (alterou) {
+            alert(`A comida ${oldName} foi alterada para ${renomear}`)
+        } else { alert(`A comida ${oldName} não foi encontrada no estoque`) }
+
+    }
+
+    function deletar() {
+        var produtoDeletar = ipt_delete.value
+        var deletou = false
+
+        for (var i = comidas.length; i >=0 ; i--) {
+            if (comidas[i] == produtoDeletar) {
+                comidas.splice(i,1)
+                deletou = true
+                console.log(comidas) 
+            }
+           
+        }
+        if (deletou) {
+            alert(`A comida ${produtoDeletar} foi removida do estoque.`)
+        } else { alert(`A comida ${produtoDeletar} não está no estoque.`) }
+        console.log(comidas)
+       
+        
+
+    }
+
+
+
+
+</script>
+
+</html>

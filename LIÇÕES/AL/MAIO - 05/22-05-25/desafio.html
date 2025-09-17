@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="ocultar()">
+    <label for="ipt_acao">O que deseja fazer?</label>
+    <select id="ipt_acao" onchange="acao()">
+        <option value=""></option>
+        <option value="1">Cadastrar Musica</option>
+        <option value="2">Remover Musica</option>
+        <option value="3">Atualizar Lançamento</option>
+        <option value="4">Média de Avaliações por Banda</option>
+        <option value="5">Onde está o integrante?</option>
+    </select><br>
+
+    <label id="1" for="ipt_titulo">Nome da música:</label>
+    <input type="text" id="ipt_titulo"><br>
+    <label id="2" for="ipt_banda">Nome da banda</label>
+    <input type="text" id="ipt_banda"><br>
+    <label id="3" for="ipt_duracao">Duração da música em minutos</label>
+    <input type="text" id="ipt_duracao"><br>
+    <label id="4" for="ipt_lancamento">Ano de lançamento da música</label>
+    <input type="text" id="ipt_lancamento"><br>
+    <label id="5" for="ipt_avaliacoes">lista de avaliações da música, de 1 a 5</label>
+    <select id="ipt_avaliacoes">
+        <option value=""></option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select><br>
+    <label id="6" for="ipt_integrantes">Integrantes da banda</label>
+    <input type="text" id="ipt_integrantes"><br><br>
+
+
+    <button id="bt1" onclick="addMusica()">Adicionar musica</button>
+    <button onclick="listar()">Listar</button>
+    <button id="bt2" onclick="remover()">Remover Pelo titulo</button>
+    <button id="bt3" onclick="atualizarAno()">Atualizar Ano</button>
+    <button id="bt4" onclick="mediaAvaliacoesPorBanda()">Média por Banda</button>
+    <button id="bt5" onclick="ondeEstaIntegrante()">Localizar integrante</button>
+    <div id="resposta"></div>
+</body>
+
+<script>
+
+    var bandas = [
+        {
+            Titulo: "Música 1",
+            Banda: "Banda A",
+            Duracao: "3:45",
+            Lancamento: 2020,
+            Avaliacao: 5,
+            Integrantes: ["João", "Lucas", "Fernanda"]
+        },
+        {
+            Titulo: "Música 2",
+            Banda: "Banda B",
+            Duracao: "4:10",
+            Lancamento: 2019,
+            Avaliacao: 4,
+            Integrantes: ["Maria", "Carlos"]
+        },
+        {
+            Titulo: "Música 3",
+            Banda: "Banda C",
+            Duracao: "2:58",
+            Lancamento: 2018,
+            Avaliacao: 3,
+            Integrantes: ["Bruna", "Diego", "Ana", "Ricardo"]
+        },
+        {
+            Titulo: "Música 4",
+            Banda: "Banda D",
+            Duracao: "3:20",
+            Lancamento: 2021,
+            Avaliacao: 5,
+            Integrantes: ["Sofia", "Eduardo"]
+        },
+        {
+            Titulo: "Música 5",
+            Banda: "Banda E",
+            Duracao: "4:00",
+            Lancamento: 2022,
+            Avaliacao: 4,
+            Integrantes: ["Beatriz", "André", "Mariana"]
+        },
+        {
+            Titulo: "Música 6",
+            Banda: "Banda F",
+            Duracao: "3:30",
+            Lancamento: 2020,
+            Avaliacao: 5,
+            Integrantes: ["Gabriel", "Paula", "Henrique"]
+        },
+        {
+            Titulo: "Música 7",
+            Banda: "Banda G",
+            Duracao: "5:10",
+            Lancamento: 2017,
+            Avaliacao: 3,
+            Integrantes: ["Larissa", "Felipe"]
+        },
+        {
+            Titulo: "Música 8",
+            Banda: "Banda H",
+            Duracao: "3:15",
+            Lancamento: 2023,
+            Avaliacao: 4,
+            Integrantes: ["Renata", "Pedro", "Camila"]
+        },
+        {
+            Titulo: "Música 9",
+            Banda: "Banda I",
+            Duracao: "2:45",
+            Lancamento: 2016,
+            Avaliacao: 2,
+            Integrantes: ["Vinícius", "Tatiane"]
+        },
+        {
+            Titulo: "Música 10",
+            Banda: "Banda J",
+            Duracao: "4:20",
+            Lancamento: 2015,
+            Avaliacao: 5,
+            Integrantes: ["Letícia", "Rafael", "Joana", "Thiago"]
+        }
+    ];
+
+    function ocultar() {
+        ipt_titulo.style.display = 'none';
+        ipt_banda.style.display = 'none';
+        ipt_duracao.style.display = 'none';
+        ipt_lancamento.style.display = 'none';
+        ipt_avaliacoes.style.display = 'none';
+        ipt_integrantes.style.display = 'none';
+
+        document.getElementById('1').style.display = 'none';
+        document.getElementById('2').style.display = 'none';
+        document.getElementById('3').style.display = 'none';
+        document.getElementById('4').style.display = 'none';
+        document.getElementById('5').style.display = 'none';
+        document.getElementById('6').style.display = 'none';
+        document.getElementById('bt1').style.display = 'none';
+        document.getElementById('bt2').style.display = 'none';
+        document.getElementById('bt3').style.display = 'none';
+        document.getElementById('bt4').style.display = 'none';
+        document.getElementById('bt5').style.display = 'none';
+
+    }
+
+    function addMusica() {
+        let titulo = ipt_titulo.value;
+        let banda = ipt_banda.value;
+        let duracao = ipt_duracao.value;
+        let lancamento = Number(ipt_lancamento.value);
+        let avaliacao = Number(ipt_avaliacoes.value);
+        let integrantes = ipt_integrantes.value
+
+        if (titulo == '' || banda == '' || duracao == '' || lancamento == '' || isNaN(avaliacao) || integrantes == '') {
+            alert("Há campos em branco");
+            return;
+        }
+
+        bandas.push({
+            Titulo: titulo,
+            Banda: banda,
+            Duracao: duracao,
+            Lancamento: lancamento,
+            Avaliacao: avaliacao,
+            Integrantes: integrantes.split(",").map(item => item.trim())
+        });
+
+        listar();
+    }
+
+    function acao() {
+        let val = ipt_acao.value;
+        ocultar();
+
+        if (val == 1) {
+            document.getElementById('ipt_titulo').style.display = 'block';
+            document.getElementById('ipt_banda').style.display = 'block';
+            document.getElementById('ipt_duracao').style.display = 'block';
+            document.getElementById('ipt_lancamento').style.display = 'block';
+            document.getElementById('ipt_avaliacoes').style.display = 'block';
+            document.getElementById('ipt_integrantes').style.display = 'block';
+            document.getElementById('1').style.display = 'block';
+            document.getElementById('2').style.display = 'block';
+            document.getElementById('3').style.display = 'block';
+            document.getElementById('4').style.display = 'block';
+            document.getElementById('5').style.display = 'block';
+            document.getElementById('6').style.display = 'block';
+            document.getElementById('bt1').style.display = 'block';
+        } else if (val == 2) {
+            document.getElementById('ipt_titulo').style.display = 'block';
+            document.getElementById('bt2').style.display = 'block';
+            document.getElementById('1').style.display = 'block';
+        } else if (val == 3) {
+            document.getElementById('1').style.display = 'block';
+            document.getElementById('4').style.display = 'block';
+            document.getElementById('ipt_titulo').style.display = 'block';
+            document.getElementById('ipt_lancamento').style.display = 'block';
+            document.getElementById('bt3').style.display = 'block';
+        } else if (val == 4) {
+            document.getElementById('ipt_banda').style.display = 'block';
+            document.getElementById('bt4').style.display = 'block';
+            document.getElementById('2').style.display = 'block';
+        } else if (val == 5) {
+            document.getElementById('ipt_integrantes').style.display = 'block';
+            document.getElementById('bt5').style.display = 'block';
+            document.getElementById('6').style.display = 'block';
+        }
+    }
+
+    function listar() {
+        let msg = '';
+        for (let i = 0; i < bandas.length; i++) {
+            msg += `
+            _____________*_____________*_____________<br>
+            Titulo: ${bandas[i].Titulo}<br>
+            Banda: ${bandas[i].Banda}<br>
+            Duracao: ${bandas[i].Duracao}<br>
+            Lancamento: ${bandas[i].Lancamento}<br>
+            Avaliacao: ${bandas[i].Avaliacao}<br>
+            Integrantes: ${bandas[i].Integrantes}<br><br>`;
+        }
+        document.getElementById('resposta').innerHTML = msg;
+    }
+
+    function remover() {
+        let titulo = ipt_titulo.value;
+        for (let i = 0; i < bandas.length; i++) {
+            if (bandas[i].Titulo.toLowerCase() == titulo.toLowerCase()) {
+                bandas.splice(i, 1);
+                alert("Música removida com sucesso");
+                break;
+            }
+        }
+        listar();
+    }
+
+    function atualizarAno() {
+        let titulo = ipt_titulo.value;
+        let ano = Number(ipt_lancamento.value);
+        for (let i = 0; i < bandas.length; i++) {
+            if (bandas[i].Titulo.toLowerCase() == titulo.toLowerCase()) {
+                bandas[i].Lancamento = ano;
+                alert("Ano atualizado com sucesso");
+                break;
+            }
+        }
+        listar();
+    }
+
+    function mediaAvaliacoesPorBanda() {
+        let banda = ipt_banda.value;
+        let soma = 0;
+        let cont = 0;
+        for (let i = 0; i < bandas.length; i++) {
+            if (bandas[i].Banda == banda) {
+                soma += bandas[i].Avaliacao;
+                cont++
+            }
+        }
+        if (cont > 0) {
+            resposta.innerHTML = `A média de avaliações da banda ${banda} é ${soma / cont}`;
+        } else {
+            alert("Banda não encontrada.");
+        }
+    }
+
+    function ondeEstaIntegrante() {
+        let integrante = ipt_integrantes.value;
+        let mensagem = ''
+        for (let i = 0; i < bandas.length; i++) {
+            for (let j = 0; j < bandas[i].Integrantes.length; j++) {
+                if (bandas[i].Integrantes[j].toLowerCase() == integrante.toLowerCase()) {
+                    mensagem += `O integrante ${integrante} está na banda ${bandas[i].Banda}<br>`;
+                }
+
+            }
+        }
+
+        resposta.innerHTML = mensagem
+    }
+
+</script>
+
+</html>

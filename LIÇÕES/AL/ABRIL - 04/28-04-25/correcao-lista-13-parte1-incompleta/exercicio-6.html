@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 06</title>
+</head>
+
+<body>
+    <input type="text" id="ipt_nome_filme">
+    <button onclick="cadastrar()">Cadastrar Filme</button>
+
+    <br>
+
+    <div id="div_resultado"></div>
+</body>
+<script>
+    var filmes = []
+
+    function cadastrar(){
+        var filmeDigitado = ipt_nome_filme.value
+        filmes.push(filmeDigitado)
+
+        var fraseFinal = ''
+
+        var totalFilmes = filmes.length
+
+        for(var i =0; i< totalFilmes; i++){
+           fraseFinal += `Filme ${i+1}: ${filmes[i]} <br>`
+        }
+        div_resultado.innerHTML = fraseFinal
+    } 
+
+
+
+</script>
+
+</html>

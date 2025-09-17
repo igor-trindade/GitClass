@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="rad_pagamento">Metodo Pagamento 
+        Dinheiro, Cartão de débito, Cartão de crédito ou Boleto </label>
+    <br>
+    <input  name="pagamento" type="radio" id="rad_deb"> Débito
+    <input  name="pagamento" type="radio" id="rad_cred"> Crédito
+    <input  name="pagamento" type="radio" id="rad_bol"> Boleto
+    <input  name="pagamento" type="radio" id="rad_din"> Dinheiro
+<br>
+    <button onclick="calc()">Analisar compra</button>
+
+
+<script>
+function calc(){
+    var debito = rad_deb.checked
+    var credito = rad_cred.checked
+    var boleto = rad_bol.checked
+    var dinheiro = rad_din.checked
+
+    console.log("deb:", debito)
+    console.log("cred:", credito)
+    console.log("bol:", boleto)
+    console.log("din:", dinheiro)
+
+
+    var pagamento = ipt_pagamento.value
+
+if(dinheiro || debito){
+    alert  (`Pagamento a vista!`)
+}else if (credito || boleto){
+    alert  (`Pagamento pode ser parcelado!`)
+}
+}
+</script>
+
+</body>
+</html>

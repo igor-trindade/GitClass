@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 03</title>
+</head>
+
+<body>
+    <input type="text" id="ipt_bairro">
+    <button onclick="cadastrar()">Cadastrar Bairro</button>
+   
+    <br>
+   
+    <input type="text" id="ipt_num_relembrar">
+    <button onclick="relembrar()">Relembrar Moradia</button>
+   
+    <div id="div_resultado"></div>
+</body>
+
+<script>
+    var bairros = []
+
+    function cadastrar(){
+        bairros.push(ipt_bairro.value)
+        div_resultado.innerHTML = bairros
+    }
+    function relembrar(){
+    var numDigitado = ipt_num_relembrar.value 
+     if(numDigitado > bairros.length || numDigitado < 0 ){
+ div_resultado.innerHTML = `Você ainda não morou ${numDigitado}º`
+     }else{div_resultado.innerHTML = `Nome do ${numDigitado} º é ${bairros}`}
+
+    }
+
+</script>
+
+</html>

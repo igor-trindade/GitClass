@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Campanha de Futebol</title>
+</head>
+<body>
+    <label for="resultado_jogo">Indique o resultado</label>
+    <select id="resultado_jogo">
+        <option value="Vitória">Vitória</option>
+        <option value="Empate">Empate</option>
+        <option value="Derrota">Derrota</option>
+    </select>
+    <button onclick="registrar()">Registrar jogo</button>
+    <br><br>
+    <label for="ipt_jogo">Indique qual jogo deseja saber o resultado</label>
+    <input type="number" id="ipt_jogo" oninput="consultarJogo()">
+
+    <div id="resposta"></div>
+    <div id="resposta2"></div>
+
+<script>
+    var resultados = []
+
+    function registrar() {
+        var resultado = resultado_jogo.value
+        resultados.push(resultado)
+
+        var vitorias = 0
+        var empate = 0 
+        var derrotas = 0
+
+        for (var i = 0; i < resultados.length; i++) {
+            if (resultados[i] == "Vitória") vitorias++
+            else if (resultados[i] == "Empate") empate++
+            else derrotas++
+        }
+
+        var pontos = vitorias * 3 + empate
+        var aproveitamento = (pontos / (resultados.length * 3)) * 100
+
+        resposta.innerHTML = `
+        O time teve: ${vitorias} vitórias,
+         ${empate} empates, 
+         ${derrotas} derrotas<br>` +
+         `Pontuação total: ${pontos} pontos<br>` +
+         `Aproveitamento: ${aproveitamento.toFixed(2)}%`}
+
+    function consultarJogo() {
+        var numero = Number(ipt_jogo.value)
+        if (numero < 1 || numero > resultados.length) {
+            resposta2.innerHTML = `Não foi cadastrado um ${numero}º jogo`
+        } else {
+            var resultado = resultados[numero - 1]
+            var frase = '' 
+            if (resultado == "Vitória") {
+            frase = "Ganhou";
+            } else if (resultado == "Empate") {frase = "Empatou"
+            } else {frase = "Perdeu"}
+            resposta2.innerHTML = `No ${numero}º jogo, o time ${frase}`
+        }
+    }
+</script>
+</body>
+</html>

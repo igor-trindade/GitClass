@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="ipt_frequencia">Frequência do Aluno:</label>
+    <input type="number" id="ipt_frequencia" />
+
+    <button onclick="resposta()">Analisar frequência</button>
+    <div id="resultado"></div>
+
+
+
+    <Script>
+        function resposta(){
+var freq = ipt_frequencia.value
+if(freq >50){ resultado.innerHTML = `
+    <h1>Boa nengue continua assim </h1>
+    <br>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4EPj6sB-eLGn9eroq5BFKcUAsKq8zAuKEfw&s" alt="">
+     `}
+else{resultado.innerHTML =`
+    <h1>Lhe falta estudar!! saia do Play Station </h1>
+    <br>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFz1QZbInc5NzgdHlt-GdYiIQoDMQB9ijOWQ&s" alt="">
+    `}
+      }
+
+    </Script>
+</body>
+
+</html>

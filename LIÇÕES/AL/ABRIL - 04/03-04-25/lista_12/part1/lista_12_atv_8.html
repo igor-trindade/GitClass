@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista atv 12</title>
+</head>
+
+<body>
+    <button onclick="Nota()">Gerar uma nota de aluno entre 0 e 10</button>
+    <div id="nota"></div>
+    <br>
+
+    <button onclick="Frequencia()">Gerar uma frequência de aluno entre 0 e 100</button>
+    <div id="frequencia"></div>
+    <br>
+
+    <button onclick="Situacao()">Ver Situação</button>
+    <script>
+        var notaAtual = 0
+        var frequenciaAtual = 0
+
+        function Nota() {
+            var inicio = 0
+            var fim = 10.1
+            notaAtual = (Math.random() * (fim - inicio ) + inicio).toFixed(2)
+
+            nota.innerHTML = `Nota do aluno: ${notaAtual}`
+        }
+
+        function Frequencia() {
+            var inicio = 1
+            var fim = 100.1
+            frequenciaAtual = (Math.floor(Math.random() * (fim - inicio )) + inicio).toFixed(2)
+           frequencia.innerHTML = `Frequência do aluno: ${frequenciaAtual}%`
+        }
+
+        function Situacao() {
+            if (notaAtual >= 7 && frequenciaAtual >= 75) {
+                alert(`Situação: APROVADO! \n Nota: ${notaAtual} \n Frequência do aluno:${frequenciaAtual}%`)
+            } else {
+                alert(`Situação: REPROVADO! \n Nota: ${notaAtual} \n Frequência do aluno:${frequenciaAtual}%`)
+            }
+            console.log("nota:",notaAtual)
+            console.log("frequencia:",frequenciaAtual)
+        }
+    </script>
+</body>
+
+</html>

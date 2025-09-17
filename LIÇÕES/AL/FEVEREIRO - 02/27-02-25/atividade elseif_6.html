@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <label for="ipt_time"> O Canto da Sua Torcida!</label>
+    <input type="text" id="ipt_time">
+    <button onclick="acao()">Fale sobre esse time</button>
+    <div id="resultado"></div>
+    
+    <script>
+        function acao() {
+            var time = ipt_time.value
+           
+            if (time === 'Corinthians') {
+                resultado.innerHTML = `<h1 style="background-color: black; color: white;">Salve o Corinthians</h1>`;
+            } else if (time === 'Palmeiras') {
+                resultado.innerHTML = `<h1 style="background-color: green; color: white;">Salve o alviverde imponente</h1>`;
+            } else if (time === 'Santos') {
+                resultado.innerHTML = `<h1 style="background-color: white; color: black;">Agora quem dá a bola é o Santos</h1>`;
+            } else if (time === 'São Paulo') {
+                resultado.innerHTML = `<h1 style="background-color: black; color: red;">Salve o Tricolor paulista</h1>`;
+            } else {
+                resultado.innerHTML = `<h1>Time não encontrado</h1>`;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

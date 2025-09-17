@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista atv 12</title>
+</head>
+
+<body>
+    <button onclick="avaliar()">Avaliar</button>
+    <div id="resultado"></div>
+    <div id="imagem" class=""></div>
+
+    <script>
+        function avaliar() {
+            var inicio =  1
+            var fim = 5
+            var nota = Math.round((Math.random() * (fim - inicio) + inicio))
+            
+            resultado.innerHTML = `Nota recebida: ${nota}`
+         
+            var mensagem = ""
+            var emoji = ""
+
+            if (nota <= 0.5) {
+                mensagem = "Muito Triste"
+                emoji = "triste" 
+            } else if (nota > 0.5 && nota <= 1.5) {
+                mensagem = "Meio Triste"
+                emoji = "meioTriste" 
+            } else if (nota > 1.5 && nota <= 3.5) {
+                mensagem = "Neutro"
+                emoji = "neutro" 
+            } else if (nota > 3.5 && nota <= 4.5) {
+                mensagem = "feliz"
+                emoji = "feliz" 
+            } else {
+                mensagem = "Muito Feliz!"
+                emoji = "muitoFeliz"
+            }
+
+          imagem.innerHTML = `<p>${mensagem}</p> <div class="${emoji}"></div>`
+        }
+    </script>
+</body>
+
+</html>

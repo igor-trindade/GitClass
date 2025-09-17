@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista atv 12</title>
+</head>
+
+<body>
+    <button onclick="calc()">Sortear Nota para aluno</button>
+    <div id="resultado"></div>
+
+
+    <div id="jogador1"></div>
+    <h1>VS</h1>
+    <div id="jogador2"></div>
+
+</body>
+<script>
+
+    var vitoriasJogador1 = 0
+    var vitoriasJogador2 = 0
+
+    function calc() {
+        jogador1.innerHTML = ""
+        jogador2.innerHTML = ""
+
+        var inicio = 1
+        var fim = 3.1
+        var sorteadoFinal1 = Math.round(Math.random() * (fim - inicio) + inicio)
+        var sorteadoFinal2 = Math.round(Math.random() * (fim - inicio) + inicio)
+
+
+        if (sorteadoFinal1 == 1) {
+            jogador1.innerHTML = `<div class="tesoura"></div>`
+        } else if (sorteadoFinal1 == 2) {
+            jogador1.innerHTML = `<div class="papel"></div>`
+        } else {
+            jogador1.innerHTML = `<div class="pedra"></div>`
+        }
+
+
+        if (sorteadoFinal2 == 1) {
+            jogador2.innerHTML = `<div class="tesoura"></div>`
+        } else if (sorteadoFinal2 == 2) {
+            jogador2.innerHTML = `<div class="papel"></div>`
+        } else {
+            jogador2.innerHTML = `<div class="pedra"></div>`
+        console.log("sorteadoFinal2")
+        console.log("sorteadoFinal1")
+        }
+
+
+
+        if (
+            (sorteadoFinal1 == 1 && sorteadoFinal2 == 2) || (sorteadoFinal1 == 2 && sorteadoFinal2 == 3) || 
+            (sorteadoFinal1 == 3 && sorteadoFinal2 == 1)    
+        ) {
+            vitoriasJogador1++
+            resultado.innerHTML =
+                `O jogador 1 venceu <br>
+                <br> Jogador 1: ${vitoriasJogador1} vitória(s) 
+                <br> Jogador 2: ${vitoriasJogador2} vitória(s)`
+        } else if (
+            (sorteadoFinal2 == 1 && sorteadoFinal1 == 2) || (sorteadoFinal2 == 2 && sorteadoFinal1 == 3) || 
+            (sorteadoFinal2 == 3 && sorteadoFinal1 == 1)    
+        ) {
+            vitoriasJogador2++
+            resultado.innerHTML =
+                `O jogador 2 venceu! <br>
+                <br> Jogador 1: ${vitoriasJogador1} vitória(s) 
+                <br> Jogador 2: ${vitoriasJogador2} vitória(s)`
+        } else {
+            resultado.innerHTML =
+                `Empate! <br>
+                <br> Jogador 1: ${vitoriasJogador1} vitória(s) 
+                <br> Jogador 2: ${vitoriasJogador2} vitória(s)`
+        }
+    }
+</script>
+
+</html>

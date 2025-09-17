@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Exercício 11</title>
+    <style>
+        .star {
+            display: inline-block;
+            background-image: url('https://static.vecteezy.com/system/resources/previews/002/689/499/non_2x/yellow-original-bright-stars-sparkle-icon-glowing-light-effect-star-illustration-free-vector.jpg');
+            background-size: cover;
+            background-position: center;
+            width: 20px;
+            height: 20px;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+
+    <label for="ipt_num">Quantos Depósitos foram feitos?</label>
+    <input type="number" id="ipt_num">
+    <br>
+
+    <label for="ipt_num2">Qual valor dos Depósitos?</label>
+    <input type="number" id="ipt_num2">
+    <br>
+
+    <button onclick="contar()">Acompanhar grana</button>
+
+    <div id="div_resposta"></div>
+
+</body>
+
+<script>
+    function contar() {
+        var deposito = Number(ipt_num.value)
+        var $deposito = Number(ipt_num2.value)
+        var total = 0
+
+        div_resposta.innerHTML = ''
+
+        for (var i = 1; i <= deposito; i++) {
+            total += $deposito;
+
+            if (i % 3 === 0 ) {total += total * 0.01;}
+
+            if(i % 3 === 0 ){
+                div_resposta.innerHTML += `${i}º Mês: R$${total.toFixed(2)} <span class="star"></span><br>`;
+            } else {
+                div_resposta.innerHTML += `${i}º Mês: R$${total.toFixed(2)}<br>`;
+            }
+        }
+        
+        div_resposta.innerHTML += `<br>Total: R$${total.toFixed(2)}`;
+    }
+</script>
+
+</html>

@@ -1,0 +1,87 @@
+conveniado <- 189000
+amostragemConveniado <- 100000
+
+# Atendimento binomial
+atendimento <- rbinom(conveniado, 1, 0.32)
+amostragemAtendimento <- sample(atendimento, amostragemConveniado)
+
+# Idade da amostragem
+idadeAmostragem <- abs(round(rnorm(amostragemConveniado, mean = 35, sd = 20)))
+hist(idadeAmostragem, main = "Distribuição de Idade", xlab = "Idade", col = "lightblue")
+
+# Jovens entre 7 e 17 anos
+jovem <- idadeAmostragem[idadeAmostragem >= 7 & idadeAmostragem <= 17]
+LimiteJovem <- 7:17
+freqJovem <- table(factor(jovem, levels = LimiteJovem))
+
+cores <- c(rep("orange", length(qtdJovem)),  # cor dos jovens
+           rep("blue", length(qtdVeio)))
+
+# Quantidade total de jovens e idosos
+qtdJovem <- sum(freqJovem)
+qtdIdoso <- sum(freqIdoso)
+
+# Criar vetor com os valores
+valores <- c(qtdJovem, qtdIdoso)
+
+# Nomes das barras
+nomes <- c("Jovens", "Idosos")
+
+# Cores
+cores <- c("orange", "blue")
+
+# Plot do gráfico de barras
+barplot(valores,
+        names.arg = nomes,
+        col = cores,
+        main = "Quantidade total por grupo",
+        ylab = "Quantidade")
+
+
+barplot(freqJovem,
+        main = "Frequência Jovens",
+        xlab = "Idade",
+        ylab = "Quantidade",
+        col = "orange")
+
+length(jovem)
+table(jovem)
+
+# Idosos entre 55 e 82 anos
+idoso <- idadeAmostragem[idadeAmostragem >= 55 & idadeAmostragem <= 82]
+LimiteIdoso <- 55:82
+freqIdoso <- table(factor(idoso, levels = LimiteIdoso))
+
+barplot(freqIdoso,
+        main = "Frequência Idosos",
+        xlab = "Idade",
+        ylab = "Quantidade",
+        col = "orange")
+
+length(idoso)
+table(idoso)
+
+# Frequência total (jovens + idosos)
+freqTotal <- c(freqJovem, freqIdoso)
+
+cores <- c(rep("orange", length(freqJovem)),  # cor dos jovens
+           rep("blue", length(freqIdoso)))    # cor dos idosos
+
+barplot(freqTotal,
+        col = cores,
+        main = "Frequência do conjuncto Jovens + Idosos",
+        xlab = "Idades",
+        ylab = "Quantidade")
+
+hist(as.numeric(freqTotal), main = "Histograma Frequências", xlab = "Frequência", col = "lightgreen")
+
+# Dataframes
+df_idoso <- data.frame(idoso = idoso, atendimento = amostragemAtendimento[1:length(idoso)])
+df_jovem <- data.frame(jovem = jovem)
+
+# Conferindo
+head(df_idoso)
+head(df_jovem)
+
+# Histograma da idade total
+hist(idadeAmostragem, main = "Histograma da Idade Total", xlab = "Idade", col = "lightblue")

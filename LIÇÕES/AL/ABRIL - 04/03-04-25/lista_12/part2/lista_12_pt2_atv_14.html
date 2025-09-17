@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista atv 12</title>
+</head>
+
+<body>
+    <button onclick="calc()">Ver a Lua</button>
+    <div id="dia"></div>
+    <div id="faseLua"></div>
+
+    <script>
+        function calc() {
+            var inicio = 1
+            var fim = 31
+            var dia = Math.floor(Math.random() * (fim - inicio)) + inicio
+
+            dia.innerHTML = `Dia sorteado: ${dia}`
+
+            var mensagem = ""
+            var fase = ""
+
+            if (dia >= 1 && dia <= 7) {
+                mensagem = "Lua nova"
+                fase = "luaNova" 
+
+            } else if (dia >= 8 && dia <= 16) {
+                mensagem = "Lua cheia"
+                fase = "luaCheia" 
+
+            } else if (dia >= 17 && dia <= 22) {
+                mensagem = "Lua minguante"
+                fase = "luaMinguante"
+
+            } else if (dia >= 23 && dia <= 31) {
+                mensagem = "Lua crescente"
+                fase = "luaCrescente"
+            }
+
+            faseLua.innerHTML = `<p>${mensagem}</p> <div class="${fase}"></div>`
+        }
+    </script>
+</body>
+
+</html>

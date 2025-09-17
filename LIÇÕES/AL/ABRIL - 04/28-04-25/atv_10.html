@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="busao_info">Informe as Linhas Utilizadas durante a semana</label>
+    <input type="text" name="" id="busao_info">
+    <Button onclick="cadastrar()">Gravar busão</Button>
+    <br>
+    <label for="ipt_linha_utilizada">Valide se a linha já foi utilizada</label>
+    <input type="text" name="" id="ipt_linha_utilizada">
+    <Button onclick="pesquisar()">Pesquisar</Button>
+    
+    <div id="resposta"></div>
+</body>
+<script>
+var linhas = []
+
+function cadastrar(){
+     var linhasInformadas = busao_info.value
+     var linhasInvertida = linhas.length  
+     var mensagem = ''
+
+    if( linhasInformadas == ''){
+    alert("Informe uma linha pelo menos!")
+    return;}
+
+    linhas.push(linhasInformadas)
+   
+    do{mensagem += `Linha ${linhas[linhasInvertida]} Adicionada! <br>`
+    linhasInvertida --} 
+    while(linhasInvertida >=0)
+    resposta.innerHTML= mensagem
+}
+function pesquisar(){
+var linhaUtilizada = ipt_linha_utilizada.value
+var qtdLinhas = linhas.length 
+var contagem = 0
+var ordemUtilizada = []
+
+
+for(var i = 0; i < qtdLinhas; i++){
+    if(linhaUtilizada == linhas[i]){    
+    contagem ++
+    ordemUtilizada.push(i+1)
+    }
+    resposta.innerHTML =`  Você já pegou essa linha ${contagem} vezes, nessa ordem:${ordemUtilizada}`
+}
+}
+
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+// imagine que isso veio do html
+var hora = 14
+var diaSemana = "Terça"
+var temCompromisso = false
+
+//regras:
+// na semana somente horario comercial 9 as 18 
+// ou no sab se nao houver compromisso, qualquer horario
+
+if((hora>=9 && hora <= 18) || (diaSemana == "Sabado" && !temCompromisso)){
+alert("Pode trabalhar")
+}else{
+    alert("Não pode trabalhar")
+}
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<label for="ipt_number"></label>
+<input type="number" name="" id="ipt_number">
+<br>
+<button onclick="calc()">Ver Divisor</button>
+<br>
+<div id="resposta"></div>
+</body>
+<script>
+
+function calc(){
+
+    var number = ipt_number.value
+    var mensagem = ""
+    var contador = 0
+    if (number % 1 ){
+    resposta.innerHTML = `O numero X é um número primo`
+}
+
+
+
+    if (number >= 0 && number <= 100){
+
+        for(var i = 1; i <= number ; i++){
+            
+            if(number % i == 0){
+                mensagem += `( ${i} )é um divisor <br>`
+                contador ++
+            }
+            resposta.innerHTML = mensagem
+        }
+    }else{ alert("Digite um numero entre 0 e 100")}
+
+if(contador <= 2){
+    resposta.innerHTML = `O numero ${number} é um numero Primo`
+}
+
+}
+
+</script>
+
+</html>

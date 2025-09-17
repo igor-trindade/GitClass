@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Algoritmo não é legal, é macabro</title>
+</head>
+
+<body>
+
+       <h2>Calculadora de Corrida</h2>
+
+       <label for="ipt_nome">Nome do Passageiro:</label>
+       <input type="text" id="ipt_nome">
+       <br>
+       <label for="ipt_distancia">Distância em km:</label>
+       <input type="number" id="ipt_distancia">
+       <br>
+       <label for="ipt_band">Qual bandeira? entre 1, 2 ou 3:</label>
+       <input type="number" id="ipt_band">
+       <br>
+       <label for="ipt_hrs">Horário da corrida de 0 até 23h:</label>
+       <input type="number" id="ipt_hrs">
+       <br>
+       <button onclick="crauculo()">Calcular Corrida</button>
+
+       <p id="resultado"></p>
+
+       <script>
+              function crauculo() {
+                     var nome = ipt_nome.value
+                     var dist = ipt_distancia.value
+                     var band = ipt_band.value
+                     var hrs = ipt_hrs.value
+                     var km = 1.25
+                     var perc = 0
+                     var mens = ""
+
+
+
+
+                     // foi preenchido?
+                     if (nome == "") {
+                            mens = "Preencha o campo corretamente."
+                     }
+                     else {
+
+
+
+
+                            //  dist > que 0
+                            if (dist > 0) {
+
+
+
+
+                                   // bandeiras e %  1, 2 e 3
+                                   if (band == "1") {
+                                          if (hrs >= 0) {
+                                                 if (hrs < 7) perc = 0.05
+
+                                                 else {
+                                                        if (hrs < 13) perc = 0.10
+
+                                                        else {
+                                                               if (hrs <= 23) perc = 0.15
+
+                                                               else
+                                                                      mens = "Preencha os campos corretamente."
+                                                        }
+                                                 }
+                                          } else {
+                                                 mens = "Preencha os campos corretamente."
+                                          }
+                                   } else {
+                                          if (band == "2") {
+                                                 if (hrs >= 0) {
+                                                        if (hrs < 7) perc = 0.10
+
+                                                        else {
+                                                               if (hrs < 13) perc = 0.20
+
+                                                               else {
+                                                                      if (hrs <= 23) perc = 0.30
+
+                                                                      else
+                                                                             mens = "Preencha os campos corretamente."
+                                                               }
+                                                        }
+                                                 } else {
+                                                        mens = "Preencha os campos corretamente."
+                                                 }
+
+                                          } else {
+                                                 if (band == "3") {
+                                                        if (hrs >= 0) {
+                                                               if (hrs < 7) perc = 0.15
+
+                                                               else {
+                                                                      if (hrs < 13) perc = 0.30
+                                                                      else {
+                                                                             if (hrs <= 23) perc = 0.45
+                                                                             else mens = "Preencha os campos corretamente."
+                                                                      }
+                                                               }
+                                                        } else {
+                                                               mens = "Preencha os campos corretamente."
+                                                        }
+                                                 } else {
+                                                        mens = "Preencha os campos corretamente."
+                                                 }
+                                          }
+                                   }
+                            } else {
+                                   mens = "Preencha os campos corretamente."
+                            }
+                     }
+
+
+
+
+
+                     //  total
+                     if (mens == "") {
+                            var valorTotal = dist * km * (1 + perc)
+
+
+                            mens = `
+Olá ${nome}, sua corrida será na bandeira ${band},
+percorrerá ${dist} km e o total da corrida será de R$ ${valorTotal}`
+
+                     }
+
+
+                     resultado.innerHTML = mens  // Atualizando o resultado diretamente no HTML
+              }
+       </script>
+
+</body>
+
+</html>

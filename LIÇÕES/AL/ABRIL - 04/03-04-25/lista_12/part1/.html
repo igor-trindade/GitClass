@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista atv 12</title>
+    <style>
+        .tesoura {
+            background-image: url(./imgs/tesoura.png);
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            height: 400px;
+            width: 400px;
+            display: block; /* Default display updated for visibility */
+        }
+
+        .pedra {
+            background-image: url(./imgs/pedra.png);
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            height: 400px;
+            width: 400px;
+            display: block; /* Default display updated for visibility */
+        }
+
+        .papel {
+            background-image: url(./imgs/papel.png);
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            width: 400px;
+            height: 400px;
+            display: block; /* Default display updated for visibility */
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="calc()">Jogar</button>
+    <div id="jogador1"></div>
+    <h1>VS</h1>
+    <div id="jogador2"></div>
+</body>
+
+<script>
+    function calc() {
+        // Select the elements by their unique IDs
+        const jogador1 = document.getElementById('jogador1');
+        const jogador2 = document.getElementById('jogador2');
+
+        // Clear previous content
+        jogador1.innerHTML = '';
+        jogador2.innerHTML = '';
+
+        // Generate random values for both players
+        const inicio = 1;
+        const fim = 3;
+        const sorteadoFinal1 = Math.floor(Math.random() * (fim - inicio + 1) + inicio);
+        const sorteadoFinal2 = Math.floor(Math.random() * (fim - inicio + 1) + inicio);
+
+        // Create dynamic elements and assign appropriate classes for player 1
+        const elemento1 = document.createElement('div');
+        if (sorteadoFinal1 === 1) {
+            elemento1.className = 'tesoura';
+        } else if (sorteadoFinal1 === 2) {
+            elemento1.className = 'papel';
+        } else {
+            elemento1.className = 'pedra';
+        }
+        jogador1.appendChild(elemento1);
+
+        // Create dynamic elements and assign appropriate classes for player 2
+        const elemento2 = document.createElement('div');
+        if (sorteadoFinal2 === 1) {
+            elemento2.className = 'tesoura';
+        } else if (sorteadoFinal2 === 2) {
+            elemento2.className = 'papel';
+        } else {
+            elemento2.className = 'pedra';
+        }
+        jogador2.appendChild(elemento2);
+    }
+</script>
+
+</html>

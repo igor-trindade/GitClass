@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="ipt_number">Informe o Primeiro numero</label>
+    <input type="number" name="" id="ipt_number">
+    <br>
+    <button onclick="calc()">Somar numeros</button>
+    <br>
+    <label for="ipt_number2">Informe o Segundo numero</label>
+    <input type="number" name="" id="ipt_number2">
+    <br>
+    <div id="resposta"></div>
+    <div id="pares"></div>
+</body>
+<script>
+
+    function calc() {
+
+        var number = Number(ipt_number.value)
+        var number2 = Number(ipt_number2.value)
+        var mensagem = ""
+        var contador = 0
+        var somaPares = 0
+
+        if (number < 0 || number2 < 0 || number < number2) {
+    alert("Informe um valor válido!")
+}
+else{
+for(var i = 1; i <= number; i++){
+
+if(number2 % i == 0){
+    mensagem += `${i} é um multiplo <br>`
+}
+
+}
+resposta.innerHTML = mensagem
+}}
+
+
+</script>
+
+</html>

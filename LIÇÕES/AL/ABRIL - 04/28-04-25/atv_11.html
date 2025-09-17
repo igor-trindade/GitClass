@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="ipt_preço">Informe Preço do Produto</label>
+    <input type="text" name="" id="ipt_preço">
+    <Button onclick="cadastrar()">Cadastrar</Button>
+    <Button onclick="pesquisar()">Atualizar Estoque</Button>
+    
+    <div id="resposta"></div>
+</body>
+<script>
+var precos = []
+var contador = 0
+var somaPrecos = 0
+
+function cadastrar(){
+     var preco = ipt_preço.value 
+     var mensagem = ''
+
+    if( preco == ''){
+    alert("Informe um preço pelo menos!")
+    return;}
+    precos.push(preco)
+    contador++
+    somaPrecos += Number(preco)
+    alert(`Preço ${preco} Adicionado!`)
+}
+
+function pesquisar(){
+  var preco = ipt_preço.value 
+  var mensagem = ''
+
+  for(var i = precos.length - 1; i >=0; i--){
+mensagem +=`Preço ${i+1}:R$${precos[i]},00 <br>`
+  }
+  mensagem += `<br><br><br>Você tem ${contador} produtos cadastrados em estoque. <br>
+   Seu estoque vale R$${somaPrecos},00 `
+
+   resposta.innerHTML = mensagem
+}
+</script>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <br>
+    <label for="ipt_number2">Informe o limite inferior</label>
+    <input type="number" id="ipt_number2" placeholder="Maior que 1">
+    <br><br>
+    <label for="ipt_number">Informe o limite superior</label>
+    <input type="number" id="ipt_number" placeholder="Menor que 100 e maior que número inferior">
+    <br><br>
+    <label for="ipt_divisibilidade">Informe um número para testar a divisibilidade entre</label>
+    <input type="number" id="ipt_divisibilidade" placeholder="Entre 3 e 10">
+    <br><br>
+    <button onclick="calc()">Contar</button>
+    <br><br>
+    <div id="resposta"></div>
+    <div id="pares"></div>
+</body>
+
+<script>
+    function calc() {
+        var numberInferior = Number(ipt_number2.value)
+        var numberSuperior = Number(ipt_number.value)
+        var divisibilidade = Number(ipt_divisibilidade.value)
+
+        resposta.innerHTML = ""
+        pares.innerHTML = ""
+
+        if (numberInferior <= 1) {
+            alert("O limite inferior deve ser maior que 1.")
+            return
+        }
+        if (numberSuperior >= 100 || numberSuperior <= numberInferior) {
+            alert("O limite superior deve ser menor que 100 e maior que o limite inferior.")
+            return
+        }
+        if (divisibilidade <= 3 || divisibilidade >= 10) {
+            alert("O número para testar a divisibilidade deve estar entre 3 e 10.")
+            return
+        }
+
+        var mensagem = ""
+        var soma = 0
+        var quantidade = 0
+        var maior = 0
+        var menor = 101
+
+        for (var i = numberInferior; i <= numberSuperior; i++) {
+            if (i % divisibilidade === 0) {
+                mensagem += i + ", "
+                soma += i
+                quantidade++
+                if (i > maior) maior = i
+                if (i < menor) menor = i
+            }
+        }
+
+        resposta.innerHTML += `<p>${mensagem}</p>`
+
+        if (quantidade > 0) {
+            pares.innerHTML += `
+                QUANTIDADE TOTAL DE NÚMEROS EXIBIDOS: ${quantidade}
+                <br>
+                SOMATÓRIO DOS NÚMEROS EXIBIDOS: ${soma}
+                <br>
+                MÉDIA DOS NÚMEROS EXIBIDOS: ${(soma / quantidade).toFixed(2)}
+                <br>
+                MAIOR NÚMERO EXIBIDO: ${maior}
+                <br>
+                MENOR NÚMERO EXIBIDO: ${menor}`
+        } else {
+            pares.innerHTML += `<p>Informe um intervalo válido</p>`
+        }
+    }
+</script>
+
+</html>

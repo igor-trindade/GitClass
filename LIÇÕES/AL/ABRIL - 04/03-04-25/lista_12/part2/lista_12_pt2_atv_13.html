@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista atv 12</title>
+</head>
+
+<body>
+    <button onclick="calc()">Sortear Temperatura</button>
+    <div id="resultado"></div>
+    <div id="mensagem"></div>
+
+    <script>
+        function calc() {
+            var inicio = -20
+            var fim = 20
+            var temperatura = Math.round(Math.random() * (fim - inicio) + inicio)
+
+            resultado.innerHTML = `Temperatura sorteada: ${temperatura}`
+
+            if (temperatura < 1) {
+                mensagem.innerHTML = "Dá pra conservar qualquer alimento";
+            } else if (temperatura >= 1 && temperatura <= 10) {
+                mensagem.innerHTML  = "Conserva a maioria dos alimentos";
+            } else {
+                mensagem.innerHTML = "Estraga a maioria dos alimentos";
+            }
+
+        }
+    </script>
+</body>
+
+</html>

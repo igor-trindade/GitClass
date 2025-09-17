@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Histórico de Números</title>
+</head>
+<body>
+    <label for="numero">Digite um número qualquer:</label>
+    <input type="number" id="numero">
+    <button onclick="analisarHistorico()">Analisar histórico</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        var numeros = []
+
+        function analisarHistorico() {
+            var num = Number(numero.value)
+            numeros.push(num)
+
+            var mensagem = ""
+            for (var i = 0; i < numeros.length; i++) {
+                mensagem += `${i + 1}º Número: ${numeros[i]}<br>`
+            }
+
+            var maior = Math.max(...numeros)
+            var menor = Math.min(...numeros)
+
+            mensagem += `<br>Maior: ${maior}<br>Menor: ${menor}`
+            resultado.innerHTML = mensagem
+        }
+    </script>
+</body>
+</html>

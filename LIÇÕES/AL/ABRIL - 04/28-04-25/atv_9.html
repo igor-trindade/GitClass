@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="ipt_nome_projeto">Informe o nome dos projetos que você ja criou</label>
+    <input type="text" name="" id="ipt_nome_projeto">
+    <Button onclick="cadastrar()">Registrar projeto</Button>
+    <Button onclick="listar()">Mostrar Projetos</Button>
+    <br>
+    <br>
+    <div id="resposta"></div>
+    <br>
+    <div id="resposta2"></div>
+</body>
+<script>
+var projetos = []
+var contador = 0 
+
+function cadastrar(){
+     var nomeProjeto = ipt_nome_projeto.value
+     var projetoInfo = projetos.length  
+     var mensagem = ''
+     var nivelProfissional = ''
+ 
+    if( nomeProjeto == ''){
+    alert("Informe um Projeto pelo menos!")
+    return;}
+
+    projetos.push(nomeProjeto)
+    contador++
+
+
+    if(contador <= 4){
+        nivelProfissional = 'Júnior'
+    }else if(contador >= 5 & contador <= 12){
+        nivelProfissional = 'Pleno'}else{nivelProfissional = 'Sênior'}   
+
+    mensagem = `Você já fez ${contador} projetos. Por isso você é um profissional ${nivelProfissional} `
+
+    resposta.innerHTML = mensagem
+}
+
+function listar(){
+    var nomeProjeto = ipt_nome_projeto.value
+    var mensagem = ''
+
+for(var i = (projetos.length -1); i >=0 ; i--){
+    mensagem += `${i+1}º Projeto: ${projetos[i]} <br>`
+}
+
+    resposta2.innerHTML= mensagem
+}
+
+
+</script>
+</html>
